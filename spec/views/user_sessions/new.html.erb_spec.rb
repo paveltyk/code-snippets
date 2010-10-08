@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-describe "/user_sessions/new" do
-  before(:each) do
-    render 'user_sessions/new'
-  end
+describe "View /user_sessions/new" do
+  setup :activate_authlogic
 
-  #Delete this example and add some real ones or delete this file
-  it "should tell you where to find the file" do
-    response.should have_tag('p', %r[Find me in app/views/user_sessions/new])
+  it "should not fail if @user_session is set" do
+    assigns[:user_session] = UserSession.new
+    response.should be_success
+    render 'user_sessions/new'
   end
 end
