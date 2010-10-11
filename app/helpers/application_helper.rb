@@ -1,3 +1,9 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def render_flash
+    returning String.new do |html|
+      flash.each do |type, message|
+        html << content_tag(:div, message, :class => type)
+      end
+    end
+  end
 end

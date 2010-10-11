@@ -72,24 +72,11 @@ article {
 		margin : 6px 10px 0 0;
 	}
 
-/* Highlighted Paragraphs */
-.highlight-1, .highlight-2, .highlight-3 {
-	-moz-border-radius : 4px;
-	-webkit-border-radius : 4px;
-	padding : 5px 10px;
-}
-	.highlight-1 {
-		background : #FFCCCC;
-		border : 1px dotted #FF9966;
-	}
-	.highlight-2 {
-		background : #FFFF99;
-		border : 1px dotted #FFCC33;
-	}
-	.highlight-3 {
-		background : #CCFF99;
-		border : 1px dotted #CCCC33;
-	}
+/* Alerts */
+.notice, .error, .warning {-moz-border-radius:4px;-webkit-border-radius:4px;padding:5px 10px;}
+.error {background:#FFCCCC;border:1px dotted #FF9966;}
+.warning {background:#FFFF99;border:1px dotted #FFCC33;}
+.notice {background:#CCFF99;border:1px dotted #CCCC33;}
 
 /* Citations & Quotes */
 cite {

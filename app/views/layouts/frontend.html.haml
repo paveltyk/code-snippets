@@ -13,7 +13,9 @@
         <a href="/" title="Startseite"><strong>OWMX-3</strong> HTML5 &amp; CSS3</a>
         %p This W3C-compliant, CSS-based website template has a Creative Commons Attribution-Share Alike 3.0 Unported License.
       .b
-        %article= yield
+        %article
+          = render_flash
+          = yield
         %aside
           %h4 Search
           %form{:action => "#", :class => "s"}
