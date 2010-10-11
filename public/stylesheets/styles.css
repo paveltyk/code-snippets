@@ -213,22 +213,9 @@ article form {
 		padding : 4px 5px;
 		width : 458px;
 	}
-	article input {
-		margin : 0 0 10px;
-	}
-	article input.button, .btn {
-		background: #999;
-		border : 1px solid #888;
-		color: #FFF;
-		cursor : pointer;
-		font-weight : bold;
-		margin : 10px 0 0 0;
-		text-shadow : 0 -1px 1px rgba(0,0,0,0.25);
-		width : 25%;
-	}
-	article textarea {
-		height : 100px;
-	}
+article input {margin:0 0 10px;display:block;}
+article input.submit, .btn {background:#999;border:1px solid #888;color:#FFF;cursor:pointer;font-weight:bold;margin:20px 0 0 0;text-shadow:0 -1px 1px rgba(0,0,0,0.25);width:25%;}
+article textarea {height:100px;}
 
 /* Lists */
 article ul, aside ul {
@@ -425,3 +412,6 @@ footer {
 			-moz-box-shadow : none;
 			-webkit-box-shadow : none;
 		}
+
+form.login .text, form.login .password { width:200px; }
+form.register .text, form.register .password { width:200px; }
