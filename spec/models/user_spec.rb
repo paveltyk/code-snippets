@@ -17,5 +17,11 @@ describe User do
       user.should_not be_valid
       user.should have_at_least(1).error_on(:username)
     end
+
+    it "should not be valid if password confirmation does not match" do
+      user = User.make_unsaved :password_confirmation => 'some password confirmation'
+      user.should_not be_valid
+      user.should have_at_least(1).error_on(:password)
+    end
   end
 end
