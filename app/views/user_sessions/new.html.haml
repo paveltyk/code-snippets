@@ -1,7 +1,7 @@
 - form_for @user_session, :html => { :class => 'login' } do |form|
   = form.error_messages
 
-  = form.label :username, "Username"
+  = form.label :login, "Log In (username or email)"
   = form.text_field :username
 
   = form.label :password, "Password"
