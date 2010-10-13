@@ -1,85 +1,64 @@
 class SnippetsController < ApplicationController
   before_filter :require_user
-  # GET /snippets
-  # GET /snippets.xml
+
   def index
-    @snippets = Snippet.find_all_by_user_id(current_user.id)
+    @snippets = current_user.snippets.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @snippets }
+      format.html
     end
   end
 
-  # GET /snippets/1
-  # GET /snippets/1.xml
   def show
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @snippet }
+      format.html
     end
   end
 
-  # GET /snippets/new
-  # GET /snippets/new.xml
   def new
     @snippet = Snippet.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml { render :xml => @snippet }
+      format.html
     end
   end
 
-  # GET /snippets/1/edit
   def edit
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
   end
 
-  # POST /snippets
-  # POST /snippets.xml
   def create
-    @snippet = Snippet.new(params[:snippet])
-    @snippet.user_id = current_user.id
+    @snippet = current_user.snippets.new(params[:snippet])
 
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to(@snippet, :notice => 'Snippet was successfully created.') }
-        format.xml { render :xml => @snippet, :status => :created, :location => @snippet }
+        format.html { redirect_to([current_user, @snippet], :notice => 'Snippet was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml { render :xml => @snippet.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /snippets/1
-  # PUT /snippets/1.xml
   def update
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
 
     respond_to do |format|
       if @snippet.update_attributes(params[:snippet])
-        format.html { redirect_to(@snippet, :notice => 'Snippet was successfully updated.') }
-        format.xml { head :ok }
+        format.html { redirect_to([current_user, @snippet], :notice => 'Snippet was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @snippet.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /snippets/1
-  # DELETE /snippets/1.xml
   def destroy
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
     @snippet.destroy
 
     respond_to do |format|
-      format.html { redirect_to(snippets_url) }
-      format.xml { head :ok }
+      format.html { redirect_to user_snippets_url(current_user) }
     end
   end
 end

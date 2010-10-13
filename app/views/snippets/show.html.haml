@@ -1,0 +1,12 @@
+%p
+  %b Title:
+  =h @snippet.title
+%p
+  %b Description:
+  =h @snippet.description
+%p
+  %b Code:
+  =h @snippet.code
+
+= link_to 'Edit', edit_user_snippet_path(current_user, @snippet)
+= link_to 'Back', user_snippets_path(current_user)

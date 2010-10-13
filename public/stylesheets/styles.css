@@ -73,7 +73,7 @@ article {
 	}
 
 /* Alerts */
-.notice, .error, .warning {-moz-border-radius:4px;-webkit-border-radius:4px;padding:5px 10px;}
+.notice, .error, .warning {-moz-border-radius:4px;-webkit-border-radius:4px;padding:5px 10px;margin-bottom:20px;}
 .error {background:#FFCCCC;border:1px dotted #FF9966;}
 .warning {background:#FFFF99;border:1px dotted #FFCC33;}
 .notice {background:#CCFF99;border:1px dotted #CCCC33;}

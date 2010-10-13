@@ -1,0 +1,18 @@
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Code
+    %th Actions
+
+  - @snippets.each do |snippet|
+    %tr
+      %td=h snippet.title
+      %td=h snippet.description
+      %td=h snippet.code
+      %td
+        = link_to 'Show', [current_user, snippet]
+        = link_to 'Edit', edit_user_snippet_path(current_user, snippet)
+        = link_to 'Destroy', [current_user, snippet], :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New snippet', new_user_snippet_path(current_user)

@@ -1,0 +1,15 @@
+- form_for [current_user, @snippet] do |f|
+  = f.error_messages
+
+  = f.label :title
+  = f.text_field :title
+
+  = f.label :description
+  = f.text_area :description
+
+  = f.label :code
+  = f.text_area :code
+
+  = f.submit 'Create'
+
+= link_to 'Back', user_snippets_path(current_user)

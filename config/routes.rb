@@ -1,7 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :snippets#, :users
-
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -36,7 +33,9 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   
   map.root :controller => "welcome"
-  map.resources :users, :path_names => { :edit => 'profile' }
+  map.resources :users, :path_names => { :edit => 'profile' } do |user|
+    user.resources :snippets
+  end
 
   map.register 'register', :controller => 'users', :action => 'new', :conditions => { :method => :get }
   map.users 'register', :controller => 'users', :action => 'create', :conditions => { :method => :post }
