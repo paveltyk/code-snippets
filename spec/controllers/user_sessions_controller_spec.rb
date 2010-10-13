@@ -24,20 +24,20 @@ describe UserSessionsController do
   end
 
   describe "#create" do
-    let(:user_session) { double('user_session') }
-    before(:each) { UserSession.should_receive(:new).and_return(user_session) }
+    let(:user) { User.make :password => 'password' }
 
     it "should render action \"new\" if credentials not valid" do
-      user_session.should_receive(:save).and_return(false)
       post :create
       response.should render_template('new')
     end
-
     it "should set notice and redirect if credentials are valid" do
-      user_session.should_receive(:save).and_return(true)
-      post :create
+      post :create, :user_session => { :username => user.username, :password => 'password' }
       flash[:notice].should_not be_blank
       response.should be_redirect
+    end
+    it "should login by email as well" do
+      post :create, :user_session => { :username => user.email, :password => 'password' }
+      assert_equal controller.session["user_credentials"], user.persistence_token
     end
   end
 
