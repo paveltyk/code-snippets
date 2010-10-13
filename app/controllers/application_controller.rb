@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user = current_user_session && current_user_session.record
   end
+
+  def require_user
+    unless current_user
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to root_path
+      return false
+    end
+  end
+  
 end
