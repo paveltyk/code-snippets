@@ -33,7 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   
   map.root :controller => "welcome"
-  map.resources :users, :path_names => { :edit => 'profile' } do |user|
+  map.resources :users do |user|
     user.resources :snippets
   end
 
