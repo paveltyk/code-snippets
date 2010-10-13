@@ -22,16 +22,7 @@
             <input name="search" type="text" value="Type term and hit enter...">
           %nav
             %h4 Navigation
-            %ul
-              %li <a href="#">Lorem</a>
-              %li <a href="#">Ipsum</a>
-              %li.active
-                <a href="#">Dolor Sit</a>
-                %ul
-                  <li><a href="#">Amet</a></li>
-                  <li><a href="#">Amet</a></li>
-              %li <a href="#">Downloads</a>
-              %li <a href="#">Contact</a>
+            #top_navigation= render_navigation(:level => 1)
           %h4 Example Tag Cloud
           %ul#tagcloud
             <li class="tagcloudsize-1"><a href="#">Lorem</a></li>
