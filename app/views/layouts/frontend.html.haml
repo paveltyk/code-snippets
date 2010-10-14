@@ -12,23 +12,22 @@
       %header
         <a href="/" title="Startseite"><strong>OWMX-3</strong> HTML5 &amp; CSS3</a>
         %p This W3C-compliant, CSS-based website template has a Creative Commons Attribution-Share Alike 3.0 Unported License.
-      .b
-        %article
-          = render_flash
-          = yield
-        %aside
-          %h4 Search
-          %form{:action => "#", :class => "s"}
-            <input name="search" type="text" value="Type term and hit enter...">
-          %nav
-            %h4 Navigation
-            = render_navigation
-          %h4 Example Tag Cloud
-          %ul#tagcloud
-            <li class="tagcloudsize-1"><a href="#">Lorem</a></li>
-            <li class="tagcloudsize-2"><a href="#">Ipsum</a></li>
-            <li class="tagcloudsize-3"><a href="#">Dolor</a></li>
-            <li class="tagcloudsize-2"><a href="#">Sit Amet</a></li>
-            <li class="tagcloudsize-1"><a href="#">Consectetur</a></li>
+      %section.main
+        = render_flash
+        = yield
+      %aside
+        %h4 Search
+        %form{:action => "#", :class => "s"}
+          <input name="search" type="text" value="Type term and hit enter...">
+        %nav
+          %h4 Navigation
+          = render_navigation
+        %h4 Example Tag Cloud
+        %ul#tagcloud
+          <li class="tagcloudsize-1"><a href="#">Lorem</a></li>
+          <li class="tagcloudsize-2"><a href="#">Ipsum</a></li>
+          <li class="tagcloudsize-3"><a href="#">Dolor</a></li>
+          <li class="tagcloudsize-2"><a href="#">Sit Amet</a></li>
+          <li class="tagcloudsize-1"><a href="#">Consectetur</a></li>
       %footer
         %p Template Design &amp; Markup by <a href="http://www.jabz.info/contact/jonas-jared-jacek/" title="Profile of Jonas Jacek">Jonas Jacek</a> for <a href="http://www.owmx.com/" title="Free HTML5 &amp; CSS3 Web Template | owmx.com">Free HTML5 &amp; CSS3 Web Templates</a>.

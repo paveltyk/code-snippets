@@ -1,12 +1,9 @@
-%p
-  %b Title:
-  =h @snippet.title
-%p
-  %b Description:
-  =h @snippet.description
-%p
-  %b Code:
-  =h @snippet.code
+%article.snippet
+  %h4
+    =h @snippet.title
+  .description=simple_format h(@snippet.description)
+  %code
+    %pre=h @snippet.code
 
-= link_to 'Edit', edit_user_snippet_path(current_user, @snippet)
-= link_to 'Back', user_snippets_path(current_user)
+  = link_to 'Edit', edit_user_snippet_path(current_user, @snippet)
+  = link_to 'Back', user_snippets_path(current_user)
