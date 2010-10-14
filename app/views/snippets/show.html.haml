@@ -2,8 +2,8 @@
   %h4
     =h @snippet.title
   .description=simple_format h(@snippet.description)
-  %code
-    %pre=h @snippet.code
+  %pre
+    %code=h @snippet.code
 
   = link_to 'Edit', edit_user_snippet_path(current_user, @snippet)
   = link_to 'Back', user_snippets_path(current_user)

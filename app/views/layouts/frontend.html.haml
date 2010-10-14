@@ -6,7 +6,7 @@
     %meta{:content => '', :name => 'keywords'}
     %meta{:content => '', :name => 'description'}
     %link{:rel => "shortcut icon", :href => "/favicon.gif"}
-    = stylesheet_link_tag 'styles.css'
+    = stylesheet_link_tag 'highlight-github', 'styles.css'
   %body
     #a
       %header
@@ -31,3 +31,6 @@
           <li class="tagcloudsize-1"><a href="#">Consectetur</a></li>
       %footer
         %p Template Design &amp; Markup by <a href="http://www.jabz.info/contact/jonas-jared-jacek/" title="Profile of Jonas Jacek">Jonas Jacek</a> for <a href="http://www.owmx.com/" title="Free HTML5 &amp; CSS3 Web Template | owmx.com">Free HTML5 &amp; CSS3 Web Templates</a>.
+    = javascript_include_tag 'highlight.pack.js'
+    :javascript
+      hljs.initHighlightingOnLoad();
