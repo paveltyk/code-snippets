@@ -96,31 +96,12 @@ dd.summary {font-weight:bold;}
 .vevent a {font-size:11px;}
 
 /* Forms */
-section.main form {
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	background:#DDD;
-	margin:0 0 20px;
-	padding:10px;
-	}
-	section.main label {
-		color:#666;
-		display:block;
-		font-size:10px;
-		font-weight:bold;
-		margin:0 0 0 2px;
-	}
-	section.main input, section.main textarea {
-		-moz-border-radius: 4px;
-		-webkit-border-radius: 4px;
-		border:1px solid #CCC;
-		font-size:11px;
-		padding:4px 5px;
-		width:458px;
-	}
-section.main input {margin:0 0 10px;display:block;}
-section.main input.submit, .btn {background:#999;border:1px solid #888;color:#FFF;cursor:pointer;font-weight:bold;margin:20px 0 0 0;text-shadow:0 -1px 1px rgba(0,0,0,0.25);width:25%;}
-section.main textarea {height:100px;}
+section.main form {-moz-border-radius:4px;-webkit-border-radius:4px;background:#DDD;margin:0 0 20px;padding:10px;}
+label {color:#666;display:block;font-size:10px;font-weight:bold;margin:0 0 0 2px;}
+input, textarea {-moz-border-radius:4px;-webkit-border-radius:4px;border:1px solid #CCC;font-size:11px;padding:4px 5px;width:458px;}
+input {margin:0 0 10px;display:block;}
+input.submit, .btn {background:#999;border:1px solid #888;color:#FFF;cursor:pointer;font-weight:bold;margin:20px 0 0 0;text-shadow:0 -1px 1px rgba(0,0,0,0.25);width:25%;}
+textarea {height:100px;}
 
 /* Lists */
 section.main ul, aside ul {
@@ -285,7 +266,7 @@ footer {
 		}
 
 .fieldWithErrors label {color:#AA4444;}
-.fieldWithErrors input {color:#AA4444;border-color:#AA4444;background-color:#FFCCCC;}
+.fieldWithErrors input {color:#AA4444;border-color:#FF9966;background-color:#FFCCCC;}
 
 
 form.login .text, form.login .password { width:200px; }
