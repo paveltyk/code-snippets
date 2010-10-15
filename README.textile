@@ -1,3 +1,5 @@
 h2. Code Snippets Storage
 
-Code snippets storage with tag support and reach search functionality.
+Code snippets storage with tag support and rich search functionality.
+
+"http://code-snippets.heroku.com":http://code-snippets.heroku.com
