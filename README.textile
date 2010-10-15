@@ -9,5 +9,4 @@ h2. Hacking
 This project uses gem bundler, so you need to install it at first.
 
 <pre><code>$ gem install bundler
-$ cd code-snippents
-$ bundle install</code></pre>
+$ sudo bundle install --without production</code></pre>
