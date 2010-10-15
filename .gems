@@ -1,0 +1,5 @@
+jrails --version '0.6'
+haml --version '2.2.24'
+simple-navigation --version '2.5.3'
+authlogic --version '>=2.1.6'
+rails --version 2.3.8
