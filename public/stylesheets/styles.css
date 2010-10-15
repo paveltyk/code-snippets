@@ -26,7 +26,7 @@ sup {top:-4px;}
 header {-moz-border-radius:4px;-webkit-border-radius:4px;background:#0098CC url(/images/hd.jpg) no-repeat top left;height:200px;margin:0 0 10px 0;padding:10px 10px;position:relative;}
 header a {color:#FFF;font-size:16px;}
 header a:hover {color:#FFF;}
-header p {-moz-border-radius:4px;-webkit-border-radius:4px;background:#FFF;bottom:20px;color:#000;font-weight:bold;opacity:0.5;padding:10px;position:absolute;right:20px;width:400px;}
+header p {-moz-border-radius:4px;-webkit-border-radius:4px;background:#FFF;bottom:20px;color:#000;font-weight:bold;opacity:0.5;padding:10px;position:absolute;right:20px;width:420px;}
 
 /* Main section */
 section.main {-moz-border-radius:4px;-webkit-border-radius:4px;background:#FFF;border:1px solid #CCC;float:right;height:auto;padding:20px;width:550px;}
