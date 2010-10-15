@@ -265,6 +265,11 @@ footer {
 			-webkit-box-shadow:none;
 		}
 
+article.snippet.short {margin-bottom:20px;}
+article.snippet.short h4 a {font-size:13px;font-weight:bold;color:#666666;}
+article.snippet.short h4 a:hover {color:#016F93;}
+article.snippet.short pre {max-height:145px;overflow:hidden;}
+
 .fieldWithErrors label {color:#AA4444;}
 .fieldWithErrors input {color:#AA4444;border-color:#FF9966;background-color:#FFCCCC;}
 
