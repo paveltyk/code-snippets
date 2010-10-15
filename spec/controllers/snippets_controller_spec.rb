@@ -55,9 +55,9 @@ describe SnippetsController do
     end
     describe "#create" do
       it "should create new snippet and redirect" do
-        Snippet.count.should eql(0)
-        post :create, :user_id => user.id, :snippet => Snippet.plan
-        user.snippets.count.should eql(1)
+        expect {
+          post :create, :user_id => user.id, :snippet => Snippet.plan
+        }.to change { user.snippets.count }.from(0).to(1)
         response.should be_redirect
       end
     end
@@ -79,9 +79,9 @@ describe SnippetsController do
     describe "#destroy" do
       it "should destroy snippet and redirect" do
         snippet = user.snippets.make
-        user.snippets.count.should eql(1)
-        delete :destroy, :user_id => user.id, :id => snippet.id
-        user.snippets.count.should eql(0)
+        expect {
+          delete :destroy, :user_id => user.id, :id => snippet.id
+        }.to change { user.snippets.count }.from(1).to(0)
         response.should be_redirect
       end
     end
