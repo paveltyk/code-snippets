@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :snippets
   end
 
+  map.home 'home', :controller => 'home', :action => 'index', :conditions => { :method => :get }
   map.register 'register', :controller => 'users', :action => 'new', :conditions => { :method => :get }
   map.users 'register', :controller => 'users', :action => 'create', :conditions => { :method => :post }
 
