@@ -1,5 +1,4 @@
-jQuery.fn.makeExpandable = function() {
-  var orig_size = {'max-height':$(this).height()+'px','width':$(this).width() + 'px'};
+jQuery.fn.makeExpandable = function(max_height, width) {
   $(this).hover(
     function(){
       var innerWidth = $("code", this).innerWidth();
@@ -10,7 +9,7 @@ jQuery.fn.makeExpandable = function() {
       $(this).stop(true, false).animate(new_size,'fast');
     },
     function(){
-      $(this).stop(true, false).animate(orig_size,'fast');
+      $(this).stop(true, false).animate({'max-height':max_height+'px','width':width + 'px'},'fast');
     }
   );
 };

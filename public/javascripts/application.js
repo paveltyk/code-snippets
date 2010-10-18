@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  $('pre').makeExpandable();
+  $('pre').makeExpandable(145, 520);
 });
