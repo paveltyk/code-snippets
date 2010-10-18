@@ -71,8 +71,8 @@ describe SnippetsController do
     describe "#update" do
       it "should update snippet and redirect" do
         snippet = user.snippets.make
-        put :update, :user_id => user.id, :id => snippet.id, :snippet => { :title => 'New title'}
-        user.snippets.find(snippet.id).title.should eql('New title')
+        put :update, :user_id => user.id, :id => snippet.id, :snippet => { :description => 'New description'}
+        user.snippets.find(snippet.id).description.should eql('New description')
         response.should be_redirect
       end
     end

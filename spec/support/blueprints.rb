@@ -18,7 +18,6 @@ end
 
 Snippet.blueprint do
   user
-  title
   description
   code
 end

@@ -9,11 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101011122827) do
+ActiveRecord::Schema.define(:version => 20101016100240) do
 
   create_table "snippets", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title"
     t.text     "description"
     t.text     "code"
     t.datetime "created_at"
