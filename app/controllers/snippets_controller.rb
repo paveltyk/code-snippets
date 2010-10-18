@@ -2,7 +2,7 @@ class SnippetsController < ApplicationController
   before_filter :require_user
 
   def index
-    @snippets = current_user.snippets.all
+    @snippets = current_user.snippets.all :order => '`snippets`.`created_at` DESC'
 
     respond_to do |format|
       format.html
