@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include TagsHelper
   def render_flash
     returning String.new do |html|
       flash.each do |type, message|

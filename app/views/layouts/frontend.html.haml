@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-%html{}
+%html
   %head
     %title Code Snippets
     %meta{:content => 'text/html; charset=utf-8', 'http-equiv' => 'content-type'}
@@ -24,11 +24,8 @@
           = render_navigation
         %h4 Example Tag Cloud
         %ul#tagcloud
-          <li class="tagcloudsize-1"><a href="#">Lorem</a></li>
-          <li class="tagcloudsize-2"><a href="#">Ipsum</a></li>
-          <li class="tagcloudsize-3"><a href="#">Dolor</a></li>
-          <li class="tagcloudsize-2"><a href="#">Sit Amet</a></li>
-          <li class="tagcloudsize-1"><a href="#">Consectetur</a></li>
+          - tag_cloud Snippet.tag_counts, %w(size-1 size-2 size-3 size-4) do |tag, css_class|
+            %li{:class => css_class}= link_to tag.name, '#', :title => tag.name
       %footer
         %p Template Design &amp; Markup by <a href="http://www.jabz.info/contact/jonas-jared-jacek/" title="Profile of Jonas Jacek">Jonas Jacek</a> for <a href="http://www.owmx.com/" title="Free HTML5 &amp; CSS3 Web Template | owmx.com">Free HTML5 &amp; CSS3 Web Templates</a>.
     = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.make_expandable','application'

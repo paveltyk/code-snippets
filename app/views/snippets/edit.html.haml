@@ -1,12 +1,6 @@
 - form_for [current_user, @snippet] do |f|
   = f.error_messages
-
-  = f.label :description
-  = f.text_area :description
-
-  = f.label :code
-  = f.text_area :code
-
+  = render :partial => 'snippets/fields', :locals => { :f => f }
   = f.submit 'Update'
 
 = link_to 'Show', [current_user, @snippet]

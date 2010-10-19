@@ -1,5 +1,6 @@
 class Snippet < ActiveRecord::Base
   TITLE_MAX_LENGTH = 60
+  acts_as_taggable
   belongs_to :user
 
   def title

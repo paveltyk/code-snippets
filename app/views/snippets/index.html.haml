@@ -5,6 +5,8 @@
     .description= simple_format truncate(h(snippet.description), :length => 300, :omission => "... #{link}")
     %pre
       %code=h snippet.code
+    .tags= render_tag_list(snippet.tag_list)
+
 
     = link_to 'Edit', edit_user_snippet_path(current_user, snippet)
     = link_to 'Back', user_snippets_path(current_user)
