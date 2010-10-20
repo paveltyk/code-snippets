@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
     @user_session.save do |result|
       if result
         flash[:notice] = "Successfully logged in."
-        redirect_to root_url
+        redirect_to home_url
       else
         render :action => 'new'
       end

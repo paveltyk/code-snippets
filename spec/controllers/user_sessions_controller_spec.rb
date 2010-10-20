@@ -30,10 +30,10 @@ describe UserSessionsController do
       post :create
       response.should render_template('new')
     end
-    it "should set notice and redirect if credentials are valid" do
+    it "should set notice and redirect to home_url if credentials are valid" do
       post :create, :user_session => { :username => user.username, :password => 'password' }
       flash[:notice].should_not be_blank
-      response.should be_redirect
+      response.should redirect_to(home_url)
     end
     it "should login by email as well" do
       post :create, :user_session => { :username => user.email, :password => 'password' }
