@@ -8,7 +8,9 @@
   = form.password_field :password
   = form.submit "Submit"
 
-  = '<strong>Or use</strong>'
+  %hr
+  %strong Or use OpenID
+
   = form.label :openid_identifier, "OpenID URL"
   = form.text_field :openid_identifier
   

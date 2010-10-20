@@ -4,10 +4,9 @@ gem 'rails', '2.3.8'
 gem 'jrails', '~> 0.6'
 gem 'haml', '~> 2.2.24'
 gem 'simple-navigation', '~> 2.5.3'
-gem 'ruby-openid', :require => 'openid'
-gem 'authlogic-oid', '1.0.4'
-gem 'authlogic', '2.1.1'
-gem 'mongrel'
+gem 'ruby-openid', '~> 2.1.8', :require => 'openid'
+gem 'authlogic-oid', '~> 1.0.4'
+gem 'authlogic', '~> 2.1.6'
 
 group :production do
   gem 'pg'
@@ -16,6 +15,7 @@ end
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'mysql'
+  gem 'mongrel'
 end
 
 group :test do
