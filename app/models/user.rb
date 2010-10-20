@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  require 'authlogic_openid'
-  
   acts_as_authentic do |c|
     c.openid_required_fields = [:nickname, :email]  
   end
@@ -12,6 +10,7 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def map_openid_registration(registration)
     self.email = registration["email"] if email.blank?
     self.username = registration["nickname"] if username.blank?
