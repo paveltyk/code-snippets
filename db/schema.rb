@@ -9,7 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20101019143937) do
+=======
+ActiveRecord::Schema.define(:version => 20101019111823) do
+
+  create_table "open_id_authentication_associations", :force => true do |t|
+    t.integer "issued"
+    t.integer "lifetime"
+    t.string  "handle"
+    t.string  "assoc_type"
+    t.binary  "server_url"
+    t.binary  "secret"
+  end
+
+  create_table "open_id_authentication_nonces", :force => true do |t|
+    t.integer "timestamp",  :null => false
+    t.string  "server_url"
+    t.string  "salt",       :null => false
+  end
+>>>>>>> Users should be able to login (register) via OpenID
 
   create_table "snippets", :force => true do |t|
     t.integer  "user_id"
@@ -40,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20101019143937) do
     t.string "crypted_password"
     t.string "password_salt"
     t.string "persistence_token"
+    t.string "openid_identifier"
   end
 
 end

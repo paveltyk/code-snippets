@@ -4,7 +4,10 @@ gem 'rails', '2.3.8'
 gem 'jrails', '~> 0.6'
 gem 'haml', '~> 2.2.24'
 gem 'simple-navigation', '~> 2.5.3'
-gem 'authlogic', '~> 2.1.6'
+gem 'ruby-openid', :require => 'openid'
+gem 'authlogic-oid', '1.0.4'
+gem 'authlogic', '2.1.1'
+gem 'mongrel'
 
 group :production do
   gem 'pg'

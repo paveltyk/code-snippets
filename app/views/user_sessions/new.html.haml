@@ -6,5 +6,10 @@
 
   = form.label :password, "Password"
   = form.password_field :password
+  = form.submit "Submit"
+
+  = '<strong>Or use</strong>'
+  = form.label :openid_identifier, "OpenID URL"
+  = form.text_field :openid_identifier
   
   = form.submit "Submit"

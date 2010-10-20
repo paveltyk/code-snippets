@@ -5,11 +5,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Registration successful."
-      redirect_to root_url
-    else
-      render :action => 'new'
+    @user.save do |result|
+      if result
+        flash[:notice] = "Registration successful."
+        redirect_to root_url
+      else
+        render :action => 'new'
+      end
     end
   end
 
@@ -19,12 +21,14 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(params[:user])
-      flash[:notice] = "Profile was successfully updated."
-      redirect_to :action => 'edit'
-    else
-      render :action => 'edit'
+    @user.attributes = params[:user]
+    @user.save do |result|
+      if result
+        flash[:notice] = "Successfully updated profile."
+        redirect_to root_url
+      else
+        render :action => 'edit'
+      end
     end
   end
-
 end
