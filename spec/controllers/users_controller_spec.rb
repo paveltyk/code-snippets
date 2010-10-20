@@ -28,13 +28,13 @@ describe UsersController do
     before(:each) { User.should_receive(:new).and_return(user) }
 
     it "should render action \"new\" if user not valid" do
-      user.should_receive(:save).and_return(false)
+      user.should_receive(:save).and_yield(false)
       post :create
       response.should render_template('new')
     end
 
     it "should set notice and redirect if user is valid" do
-      user.should_receive(:save).and_return(true)
+      user.should_receive(:save).and_yield(true)
       post :create
       response.should be_redirect
       flash[:notice].should_not be_blank
@@ -57,7 +57,7 @@ describe UsersController do
 
     describe "#update" do
       it "should update user and redirect" do
-        user.should_receive(:update_attributes).and_return(true)
+        user.should_receive(:save).and_yield(true)
         controller.should_receive(:current_user).at_least(1).and_return(user)
         put :update, :id => 1
         response.should be_redirect
