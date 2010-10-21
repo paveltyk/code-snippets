@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe HomeController do
 
@@ -7,12 +7,14 @@ describe HomeController do
       params_from(:get, '/home').should == {:controller => 'home', :action => 'index'}
     end
   end
-
-  describe "#index" do
-    it "should get index" do
-      get :index
-      assert_response :success
+  context "with views" do
+    integrate_views
+    
+    describe "#index" do
+      it "should get index" do
+        get :index
+        assert_response :success
+      end
     end
   end
-
 end
