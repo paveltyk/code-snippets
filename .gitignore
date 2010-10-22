@@ -1,0 +1,6 @@
+.idea/
+log/
+config/database.yml
+*.sqlite3
+tmp/
+.bundle

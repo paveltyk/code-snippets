@@ -1,0 +1,24 @@
+- form_for @user, :html => { :class => 'register' } do |form|
+  = form.error_messages
+
+  = form.label :username, "Username"
+  = form.text_field :username
+
+  = form.label :email, "Email"
+  = form.text_field :email
+
+  = form.label :password, "Password"
+  = form.password_field :password
+
+  = form.label :password_confirmation, "Password confirmation"
+  = form.password_field :password_confirmation
+
+  = form.submit "Submit"
+
+  %hr
+  %strong Or use OpenID
+
+  = form.label :openid_identifier, "OpenID URL"
+  = form.text_field :openid_identifier
+
+  = form.submit "Submit"
