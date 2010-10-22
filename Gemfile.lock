@@ -67,4 +67,4 @@ DEPENDENCIES
   ruby-openid (~> 2.1.8)
   simple-navigation (~> 2.5.3)
   sqlite3-ruby
-  will_paginate
+  will_paginate (~> 2.3.11)
