@@ -5,3 +5,4 @@
 
 = link_to 'Show', [current_user, @snippet]
 = link_to 'Back', user_snippets_path(current_user)
+= link_to 'Delete', user_snippet_path(current_user), :confirm => 'Are you sure?', :method => :delete

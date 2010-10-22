@@ -12,5 +12,4 @@
     = link_to 'Back', user_snippets_path(current_user)
     = link_to 'Delete', user_snippet_path(current_user, snippet), :confirm => 'Are you sure?', :method => :delete
 
-= link_to 'New snippet', new_user_snippet_path(current_user)
 %code=  will_paginate @snippets 
