@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :require_user, :only => :index
+
+  def index
+    @users = User.paginate :per_page => 5, :page => params[:page]
+  end
+
   def new
     @user = User.new
   end
