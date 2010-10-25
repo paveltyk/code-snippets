@@ -1,5 +1,4 @@
 %h1 users list
 - @users.each do |user|
- = link_to "#{user.username}", edit_user_path (user)
- %br
+  %h2= h user.username
 %code=  will_paginate @users 

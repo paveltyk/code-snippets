@@ -48,13 +48,6 @@ describe UsersController do
     let(:user) { User.make }
     before(:each) { UserSession.create(user) }
 
-    describe "#index" do
-      it "should be links to all users profiles" do
-        get :index
-        assert_response :success
-      end
-    end
-
     describe "#edit" do
       it "load current user" do
         get :edit, :id => 1
