@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_user, :only => :index
+  before_filter :require_user, :only => [:edit, :update]
 
   def index
     @users = User.paginate :per_page => 5, :page => params[:page]
