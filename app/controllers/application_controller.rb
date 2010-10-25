@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
     unless current_user
       flash[:notice] = "You must be logged in to access this page"
       redirect_to root_path
-      return false
     end
   end
   
