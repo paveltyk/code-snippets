@@ -1,0 +1,6 @@
+= avatar_tag(@user, :size => 60)
+
+= label "username", @user.username
+
+- if @user == current_user
+  = link_to 'Edit', edit_user_path(current_user)
