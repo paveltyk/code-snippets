@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => :index
 
   def index
-    @users = User.paginate :per_page => 5, :page => params[:page]
+    @users = User.paginate :per_page => 10, :page => params[:page]
   end
 
   def new
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])#@user =current_user
   end
 
   def update
