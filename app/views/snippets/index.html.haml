@@ -1,15 +1,15 @@
 - @snippets.each do |snippet|
-  - link = link_to 'Read more', [current_user, snippet], :title => "Read more about #{sanitize(snippet.title)}"
+  - link = link_to 'Read more', [:my, snippet], :title => "Read more about #{sanitize(snippet.title)}"
   %article.snippet.short
-    %h4=link_to h(snippet.title), [current_user, snippet], :title => sanitize(snippet.title)
+    %h4=link_to h(snippet.title), [:my, snippet], :title => sanitize(snippet.title)
     .description= simple_format truncate(h(snippet.description), :length => 300, :omission => "... #{link}")
     %pre
       %code=h snippet.code
     .tags= render_tag_list(snippet.tag_list)
 
 
-    = link_to 'Edit', edit_user_snippet_path(current_user, snippet)
-    = link_to 'Back', user_snippets_path(current_user)
-    = link_to 'Delete', user_snippet_path(current_user, snippet), :confirm => 'Are you sure?', :method => :delete
+    = link_to 'Edit', edit_my_snippet_path(snippet)
+    = link_to 'Back', my_snippets_path
+    = link_to 'Delete', [:my, snippet], :confirm => 'Are you sure?', :method => :delete
 
 %code=  will_paginate @snippets 

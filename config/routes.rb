@@ -33,8 +33,12 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   
   map.root :controller => "welcome"
-  map.resources :users do |user|
-    user.resources :snippets
+
+  map.resources :users
+  map.resources :snippets, :only => [:index, :show]
+
+  map.namespace :my do |my|
+    my.resources :snippets, :only => [:index, :new, :create, :edit, :update, :destroy]
   end
 
   map.home 'home', :controller => 'home', :action => 'index', :conditions => { :method => :get }
