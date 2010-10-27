@@ -31,6 +31,6 @@
               %li{:class => css_class}= link_to tag.name, tag_path(tag.name), :title => tag.name
       %footer
         %p== &copy; #{Time.now.year} Code-Snippets
-    = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'application'
+    = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.placeholder', 'application'
     :javascript
       hljs.initHighlightingOnLoad();

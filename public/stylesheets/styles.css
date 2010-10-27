@@ -46,6 +46,8 @@ form.login {padding:40px 0;text-align:center;}
 form.login label {font-size:26px;}
 form.login input.text {border:1px solid #999;font-size:24px;margin:0 15px 0 10px;padding:2px 5px 2px 36px;background:url("/images/openid-logo.png") no-repeat scroll 5px 2px;}
 
+form.snippet .placeholder {color:#aaa !important;} 
+
 form.snippet textarea, form.snippet .text {display:block;width:758px;-webkit-border-radius:4px;-moz-border-radius:4px;-moz-box-shadow:0 1px #eee;-webkit-box-shadow:0 1px #eee;border:1px solid #CCCCCC;color:#222222;font:14px Helvetica Neue,Arial,sans-serif;}
 form.snippet textarea:hover, form.snippet .text:hover {border-color:#999;}
 form.snippet textarea:focus, form.snippet .text:focus {-moz-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-webkit-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);border-color:rgba(82, 168, 236, 0.75);}
