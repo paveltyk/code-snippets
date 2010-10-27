@@ -28,3 +28,6 @@ def add_default_class(name, options)
   end
   options
 end
+
+ActionView::Base.default_form_builder = CustomFormBuilder
+ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| html_tag }

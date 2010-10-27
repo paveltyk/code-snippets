@@ -6,28 +6,31 @@
     %meta{:content => '', :name => 'keywords'}
     %meta{:content => '', :name => 'description'}
     %link{:rel => "shortcut icon", :href => "/favicon.gif"}
-    = stylesheet_link_tag 'highlight-github', 'styles.css'
+    = stylesheet_link_tag 'reset', 'highlight-github', 'styles'
   %body
-    #a
+    #container
       %header
-        = link_to '<strong>Share</strong>&nbsp;Code Snippets', root_path, :title => 'Code Snippets'
-        %p Always forget something? Can't keep too much in your head? Why don't you save your code snippets and share them your friends? It's easy now!
+        =# link_to '<strong>Share</strong>&nbsp;Code Snippets', root_path, :title => 'Code Snippets'
+        -#%p Always forget something? Can't keep too much in your head? Why don't you save your code snippets and share them your friends? It's easy now!
+        = render_navigation
+          
       %section.main
         = render_flash
         = yield
-      %aside
-        %h4 Search
-        %form{:action => "#", :class => "s"}
-          <input name="search" type="text" value="Type term and hit enter...">
-        %nav
-          %h4 Navigation
-          = render_navigation
-        %h4 Example Tag Cloud
-        %ul#tagcloud
-          - tag_cloud Snippet.tag_counts, %w(size-1 size-2 size-3 size-4) do |tag, css_class|
-            %li{:class => css_class}= link_to tag.name, tag_path(tag.name), :title => tag.name
+      -#
+        %aside
+          %h4 Search
+          %form{:action => "#", :class => "s"}
+            <input name="search" type="text" value="Type term and hit enter...">
+          %nav
+            %h4 Navigation
+            = render_navigation
+          %h4 Example Tag Cloud
+          %ul#tagcloud
+            - tag_cloud Snippet.tag_counts, %w(size-1 size-2 size-3 size-4) do |tag, css_class|
+              %li{:class => css_class}= link_to tag.name, tag_path(tag.name), :title => tag.name
       %footer
-        %p Template Design &amp; Markup by <a href="http://www.jabz.info/contact/jonas-jared-jacek/" title="Profile of Jonas Jacek">Jonas Jacek</a> for <a href="http://www.owmx.com/" title="Free HTML5 &amp; CSS3 Web Template | owmx.com">Free HTML5 &amp; CSS3 Web Templates</a>.
-    = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.make_expandable','application'
+        %p== &copy; #{Time.now.year} Code-Snippets
+    = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'application'
     :javascript
       hljs.initHighlightingOnLoad();

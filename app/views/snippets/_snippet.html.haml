@@ -1,0 +1,13 @@
+%article.snippet
+  %h4
+    =link_to h(snippet.title), snippet, :title => sanitize(snippet.title)
+    - if snippet.user == current_user
+      %span.owner-area
+        = link_to '', edit_my_snippet_path(snippet), :class => 'edit', :title => 'Edit'
+        = link_to '', [:my, snippet], :confirm => 'Are you sure?', :method => :delete, :class => 'delete', :title => 'Delete'
+  .created-at= snippet.created_at.strftime "%A, %B %d, %Y"
+  -if snippet.description.present?
+    .description= simple_format h(snippet.description)
+  %pre= content_tag :code, h(snippet.code)
+  .footer
+    .tags= render_tag_list(snippet.tag_list)

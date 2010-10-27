@@ -1,17 +1,17 @@
 - form_for @user_session, :html => { :class => 'login' } do |form|
   = form.error_messages
+  -#
+    = form.label :username, "Login/Email"
+    = form.text_field :username
 
-  = form.label :username, "Login/Email"
-  = form.text_field :username
+    = form.label :password, "Password"
+    = form.password_field :password
+    = form.submit "Submit"
 
-  = form.label :password, "Password"
-  = form.password_field :password
-  = form.submit "Submit"
-
-  %hr
-  %strong Or use OpenID
+    %hr
+    %strong Or use OpenID
 
   = form.label :openid_identifier, "OpenID URL"
   = form.text_field :openid_identifier
   
-  = form.submit "Submit"
+  = form.submit "Login"
