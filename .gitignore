@@ -1,6 +1,8 @@
-.idea/
-log/
-config/database.yml
 *.sqlite3
-tmp/
 .bundle
+.idea/
+/vendor/bundle
+/vendor/cache
+config/database.yml
+log/
+tmp/
