@@ -8,6 +8,7 @@ gem 'ruby-openid', '~> 2.1.8', :require => 'openid'
 gem 'authlogic', '~> 2.1.6'
 gem 'authlogic-oid', '~> 1.0.4', :require => 'authlogic_openid'
 gem 'will_paginate', '~> 2.3.11'
+gem 'rdiscount'
 
 group :production do
   gem 'pg'

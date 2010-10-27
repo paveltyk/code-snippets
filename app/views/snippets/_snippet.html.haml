@@ -7,7 +7,7 @@
         = link_to '', [:my, snippet], :confirm => 'Are you sure?', :method => :delete, :class => 'delete', :title => 'Delete'
   .created-at= snippet.created_at.strftime "%A, %B %d, %Y"
   -if snippet.description.present?
-    .description= simple_format h(snippet.description)
+    .description= snippet.description.format_markdown
   %pre= content_tag :code, h(snippet.code)
   .footer
     .tags= render_tag_list(snippet.tag_list)
