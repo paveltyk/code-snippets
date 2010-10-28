@@ -7,6 +7,10 @@ header {display:block;margin-bottom:17px;text-align:right;}
 .top-navigation > li {position:relative;}
 .top-navigation * {display:inline;}
 .top-navigation > li > a {border:1px solid transparent;display:inline-block;font-size:1.05em;padding:0.5em 0.15em;}
+header .root-link {float:left;}
+header .root-link a {color:#C0DEED;font-size:30px;text-shadow:0 0 2px #fff;}
+header .root-link a:hover {text-shadow:none;text-decoration:none;}
+
 section.main {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;display:block;margin-bottom:17px;padding:15px 10px;}
 footer {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;display:block;}
 footer p {padding:15px 20px;}
@@ -42,9 +46,9 @@ article .description p {margin:5px 0;}
 article .description ul {list-style:circle inside none;margin:7px 0;}
 article .description li {margin:2px 0;}
 
-/* http://papermashup.com/pretty-css3-buttons/ */
-.submit {background:#39D; url(/images/overlay.png) repeat-x;display:inline-block;padding:4px 14px;color:#fff;text-decoration:none;-moz-border-radius:6px;-webkit-border-radius:6px;-moz-box-shadow:0 1px 3px rgba(0,0,0,0.6);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.6);text-shadow:0 -1px 1px rgba(0,0,0,0.25);border:none;border-bottom:1px solid rgba(0,0,0,0.25);position:relative;cursor:pointer;font-size:24px;font-weight:bold;text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);}
-.submit:hover {background-color:#3094d5;}
+/* http://dev.opera.com/articles/view/beautiful-ui-styling-with-css3-text-shadow-box-shadow-and-border-radius/ */
+.submit {border:1px solid #8ec1da;background-color:#ddeef6;color:#3985a8;padding:8px 30px 9px;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;text-shadow:0 -1px 1px #fff;font-size:16px;position:relative;}
+.submit:hover {border:1px solid #8ec1da;text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;}
 
 form.login {padding:40px 0;text-align:center;}
 form.login label {font-size:26px;}

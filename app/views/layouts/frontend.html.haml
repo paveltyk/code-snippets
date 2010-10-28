@@ -10,10 +10,8 @@
   %body
     #container
       %header
-        =# link_to '<strong>Share</strong>&nbsp;Code Snippets', root_path, :title => 'Code Snippets'
-        -#%p Always forget something? Can't keep too much in your head? Why don't you save your code snippets and share them your friends? It's easy now!
+        .root-link= link_to 'Code Snippets', root_path, :title => 'Code Snippets'
         = render_navigation
-          
       %section.main
         = render_flash
         = yield
