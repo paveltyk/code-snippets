@@ -38,7 +38,7 @@ class My::SnippetsController < ApplicationController
 
     respond_to do |format|
       if @snippet.update_attributes(params[:snippet])
-        format.html { redirect_to([:my, @snippet], :notice => 'Snippet was successfully updated.') }
+        format.html { redirect_to(@snippet, :notice => 'Snippet was successfully updated.') } 
       else
         format.html { render :action => "edit" }
       end

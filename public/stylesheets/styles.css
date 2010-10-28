@@ -61,7 +61,7 @@ form.snippet textarea:hover, form.snippet .text:hover {border-color:#999;}
 form.snippet textarea:focus, form.snippet .text:focus {-moz-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-webkit-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);border-color:rgba(82, 168, 236, 0.75);}
 
 form.snippet textarea {padding:10px;margin-bottom:15px;}
-form.snippet textarea.code {height:360px;font-family:Consolas,Menlo,Monaco,'Lucida Console','DejaVu Sans Mono','Liberation Mono','Bitstream Vera Sans Mono','Courier New',monospace;}
+form.snippet textarea.code {height:260px;font-family:Consolas,Menlo,Monaco,'Lucida Console','DejaVu Sans Mono','Liberation Mono','Bitstream Vera Sans Mono','Courier New',monospace;}
 form.snippet textarea.description {height:100px;}
 form.snippet .text {padding:5px 10px;margin-bottom:15px;}
 

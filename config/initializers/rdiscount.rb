@@ -14,7 +14,7 @@ class String
   # :safelink - Do not make links for unknown URL types.
   # :no_pseudo_protocols - Do not process pseudo-protocols.
   def format_markdown(*options)
-    options = [:filter_html, :safelink, :no_pseudo_protocols, :smart] if options.blank?
+    options = [:filter_html, :safelink, :no_pseudo_protocols, :smart, :autolink] if options.blank?
     RDiscount.new(self, *options).to_html
   end
 end
