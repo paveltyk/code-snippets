@@ -38,6 +38,10 @@ article .footer .tags {-moz-border-radius:18px;-webkit-border-radius:18px;-moz-b
 article .footer .tags a {font-size:11px;text-shadow:0 1px #fff;color:#4A86AC;margin:0 4px;}
 article .footer .tags a:hover {color:#3a6a88;}
 
+article .description p {margin:5px 0;}
+article .description ul {list-style:circle inside none;margin:7px 0;}
+article .description li {margin:2px 0;}
+
 /* http://papermashup.com/pretty-css3-buttons/ */
 .submit {background:#39D; url(/images/overlay.png) repeat-x;display:inline-block;padding:4px 14px;color:#fff;text-decoration:none;-moz-border-radius:6px;-webkit-border-radius:6px;-moz-box-shadow:0 1px 3px rgba(0,0,0,0.6);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.6);text-shadow:0 -1px 1px rgba(0,0,0,0.25);border:none;border-bottom:1px solid rgba(0,0,0,0.25);position:relative;cursor:pointer;font-size:24px;font-weight:bold;text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);}
 .submit:hover {background-color:#3094d5;}
