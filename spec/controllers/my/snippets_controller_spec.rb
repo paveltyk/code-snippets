@@ -69,7 +69,7 @@ describe My::SnippetsController do
         snippet = user.snippets.make
         put :update, :id => snippet.id, :snippet => { :description => 'New description'}
         user.snippets.find(snippet.id).description.should eql('New description')
-        response.should redirect_to(my_snippet_path(snippet))
+        response.should redirect_to(snippet_path(snippet))
       end
     end
 
