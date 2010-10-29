@@ -6,7 +6,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :snippets, 'My Snippets', my_snippets_path, :if => Proc.new { current_user }
     primary.item :login, 'Login', login_path, :if => Proc.new { !current_user }
     primary.item :register, 'Register', register_path, :if => Proc.new { !current_user }
-    primary.item :logout, 'Log Out', logout_path, :if => Proc.new { current_user }
+    primary.item :logout, 'Logout', logout_path, :if => Proc.new { current_user }
 
     primary.dom_class = 'top-navigation'
   end

@@ -4,14 +4,14 @@ a:hover {text-decoration:underline;}
 #container {margin:1em auto;position:relative;text-align:left;width:800px;z-index:1;}
 header {display:block;margin-bottom:17px;text-align:right;}
 .top-navigation {background-color:#FFFFFF;display:inline-block;padding:0 0.7em;white-space:nowrap;-moz-border-radius:5px;-webkit-border-radius:5px;}
-.top-navigation > li {position:relative;}
+.top-navigation li {position:relative;}
 .top-navigation * {display:inline;}
-.top-navigation > li > a {border:1px solid transparent;display:inline-block;font-size:1.05em;padding:0.5em 0.15em;}
+.top-navigation li a {border:1px solid transparent;display:inline-block;font-size:1.05em;padding:0.5em 0.4em;}
 header .root-link {float:left;}
 header .root-link a {color:#C0DEED;font-size:30px;text-shadow:0 0 2px #fff;}
 header .root-link a:hover {text-shadow:none;text-decoration:none;}
 
-section.main {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;display:block;margin-bottom:17px;padding:15px 10px;}
+section.main {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;display:block;margin-bottom:17px;padding:10px;}
 footer {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;display:block;}
 footer p {padding:15px 20px;}
 
@@ -32,7 +32,7 @@ section.main .error-explanation ul {margin:0;}
 .owner-area a.edit {background-image:url("/images/ico_edit.png");}
 .owner-area a.delete {background-image:url("/images/ico_delete.png");}
 
-article {margin:20px;display:block;text-shadow:0 1px #eee;color:#425E6A;font:14px "Helvetica Neue",Helvetica Neue,Helvetica,Arial,sans-serif;}
+article {margin:15px;display:block;text-shadow:0 1px #eee;color:#425E6A;font:14px "Helvetica Neue",Helvetica Neue,Helvetica,Arial,sans-serif;}
 article h4 {color:#425E6A;font:22px "Helvetica Neue",Helvetica Neue,Helvetica,arial,sans-serif;}
 article h4 a {color:#425E6A;}
 article .created-at {color:#888888;font-size:11px;font-weight:normal;margin-bottom:15px;}
@@ -45,6 +45,8 @@ article .footer .tags a:hover {color:#3a6a88;}
 article .description p {margin:5px 0;}
 article .description ul {list-style:circle inside none;margin:7px 0;}
 article .description li {margin:2px 0;}
+
+article pre {margin:0 -15px 15px;}
 
 /* http://dev.opera.com/articles/view/beautiful-ui-styling-with-css3-text-shadow-box-shadow-and-border-radius/ */
 .submit {border:1px solid #8ec1da;background-color:#ddeef6;color:#3985a8;padding:8px 30px 9px;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;text-shadow:0 -1px 1px #fff;font-size:16px;position:relative;}
