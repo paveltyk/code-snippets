@@ -1,6 +1,6 @@
 class SnippetsController < ApplicationController
   def index
-    @snippets = Snippet.paginate :page => params[:page], :per_page => 7, :order => 'snippets.created_at DESC'
+    @snippets = Snippet.paginate :page => params[:page], :per_page => 7, :order => 'snippets.created_at DESC', :include => :user
 
     respond_to do |format|
       format.html
