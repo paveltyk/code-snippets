@@ -4,6 +4,9 @@ class TagsController < ApplicationController
     render :template => 'snippets/index'
   end
 
+  def search
+    @tag_counts = Snippet.tag_counts
+  end
   private
 
   def options_for_find_wit_tag

@@ -65,3 +65,12 @@ form.snippet textarea.code {height:260px;font-family:Consolas,Menlo,Monaco,'Luci
 form.snippet textarea.description {height:100px;}
 form.snippet .text {padding:5px 10px;margin-bottom:15px;}
 
+#tag-name-search {display:block;margin-bottom:10px;width:758px;-webkit-border-radius:4px;-moz-border-radius:4px;-moz-box-shadow:0 1px #eee;-webkit-box-shadow:0 1px #eee;border:1px solid #CCCCCC;color:#222222;font:24px Helvetica Neue,Arial,sans-serif;padding:5px 10px;color:#555;}
+#tag-name-search:hover {border-color:#999;}
+#tag-name-search:focus {-moz-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-webkit-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);border-color:rgba(82, 168, 236, 0.75);}
+#tag-name-search.placeholder {color:#ccc !important;} 
+.tag-cloud li {display:inline;margin:0 10px 0 0;}
+.tag-cloud .size-1 a {font-size:1em;}
+.tag-cloud .size-2 a {font-size:1.4em;}
+.tag-cloud .size-3 a {font-size:1.7em;}
+.tag-cloud .size-4 a {font-size:2.2em;}
