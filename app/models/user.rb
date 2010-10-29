@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
+
+  AX = {:email => "http://axschema.org/contact/email",
+        :first => "http://axschema.org/namePerson/first",
+        :last => "http://axschema.org/namePerson/last"}
+
   acts_as_authentic do |c|
-    c.openid_required_fields = [:nickname, :email]  
+    c.openid_required_fields = [AX[:email], AX[:first], AX[:last], :email, :nickname]
   end
 
   has_many :snippets, :dependent => :destroy
@@ -11,8 +16,8 @@ class User < ActiveRecord::Base
 
   private
 
-  def map_openid_registration(registration)
-    self.email = registration["email"] if email.blank?
-    self.username = registration["nickname"] if username.blank?
+  def map_openid_registration(reg)
+    self.email = (reg["email"] || reg["http://axschema.org/contact/email"]).to_s if self.email.blank?
+    self.username = (reg["nickname"] || [reg[AX[:first]], reg[AX[:last]]].flatten.join(' ')).to_s if self.username.blank?
   end
 end
