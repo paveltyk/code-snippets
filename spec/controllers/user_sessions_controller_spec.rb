@@ -14,7 +14,6 @@ describe UserSessionsController do
       params_from(:get, '/logout').should == { :controller => 'user_sessions', :action => 'destroy' }
     end
   end
-  
 
   describe "#new" do
     it "should assign @user_session variable" do
@@ -38,6 +37,11 @@ describe UserSessionsController do
     it "should login by email as well" do
       post :create, :user_session => { :username => user.email, :password => 'password' }
       assert_equal controller.session["user_credentials"], user.persistence_token
+    end
+    it "should be notice and render action \"new\" if openid not valid" do
+      post :create, :user_session => { :openid_identifier => "http://someone.example.com" }
+      assigns[:user_session].errors.inspect.include?("Sorry, the OpenID server couldn't be found").should be_true
+      response.should render_template('new')
     end
   end
 
