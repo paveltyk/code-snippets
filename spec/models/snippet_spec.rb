@@ -16,4 +16,16 @@ describe Snippet do
     end
   end
 
+  describe "validation" do
+    it "should not be valid with blank code" do
+      snippet = Snippet.make_unsaved :code => nil
+      snippet.should_not be_valid
+      snippet.should have_at_least(1).error_on(:code)
+    end
+    it "should not be valid with blank user_id" do
+      snippet = Snippet.make_unsaved :user_id => nil
+      snippet.should_not be_valid
+      snippet.should have_at_least(1).error_on(:user_id)
+    end
+  end
 end
