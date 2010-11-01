@@ -38,9 +38,9 @@ describe UserSessionsController do
       post :create, :user_session => { :username => user.email, :password => 'password' }
       assert_equal controller.session["user_credentials"], user.persistence_token
     end
-    it "should be notice and render action \"new\" if openid not valid" do
+    it "should add error and render action \"new\" if openid identifier not valid" do
       post :create, :user_session => { :openid_identifier => "http://someone.example.com" }
-      assigns[:user_session].errors.inspect.include?("Sorry, the OpenID server couldn't be found").should be_true
+      assigns[:user_session].errors.full_messages.should include("Sorry, the OpenID server couldn't be found")
       response.should render_template('new')
     end
   end

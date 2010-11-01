@@ -2,7 +2,7 @@ class Snippet < ActiveRecord::Base
   TITLE_MAX_LENGTH = 60
   acts_as_taggable
   belongs_to :user
-  validates_presence_of :code, :user_id
+  validates_presence_of :code, :user
 
   def title
     if description.present?

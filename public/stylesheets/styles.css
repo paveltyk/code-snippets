@@ -16,7 +16,7 @@ footer {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;d
 footer p {padding:15px 20px;}
 
 /* Alerts */
-.notice, .error, .warning, .error-explanation {-moz-border-radius:4px;-webkit-border-radius:4px;padding:5px 10px;margin-bottom:20px;border-style:solid;border-width:1px;}
+.notice, .error, .warning, .error-explanation {-moz-border-radius:4px;-webkit-border-radius:4px;padding:5px 10px;margin-bottom:10px;border-style:solid;border-width:1px;}
 .error, .error-explanation {background:#FFCCCC;border-color:#FF9966;}
 .warning {background:#FFFF99;border-color:#FFCC33;}
 .notice {background:#CCFF99;border-color:#CCCC33;}

@@ -13,9 +13,7 @@ class UserSessionsController < ApplicationController
         render :action => 'new'
       end
     end
-    unless performed?
-      render :action => 'new'
-    end
+    render :action => 'new' unless performed?
   end
 
   def destroy

@@ -22,10 +22,10 @@ describe Snippet do
       snippet.should_not be_valid
       snippet.should have_at_least(1).error_on(:code)
     end
-    it "should not be valid with blank user_id" do
-      snippet = Snippet.make_unsaved :user_id => nil
+    it "should not be valid with blank user" do
+      snippet = Snippet.make_unsaved :user => nil
       snippet.should_not be_valid
-      snippet.should have_at_least(1).error_on(:user_id)
+      snippet.should have_at_least(1).error_on(:user)
     end
   end
 end
