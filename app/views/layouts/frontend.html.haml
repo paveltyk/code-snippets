@@ -18,9 +18,8 @@
         = yield
       %footer
         %p
-          == &copy; #{Time.now.year} Code Snippets is an OpenSource project.
-          GitHub repo can be found at
-          = link_to 'http://github.com/PavelTyk/code-snippets', 'http://github.com/PavelTyk/code-snippets', :title => 'Code Snippets GitHub repo'
+          == &copy; #{Time.now.year} Code Snippets is an #{link_to 'OpenSource project', 'http://github.com/PavelTyk/code-snippets', :title => 'Code Snippets GitHub repository'}
+          
     = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.placeholder', 'application'
     :javascript
       hljs.initHighlightingOnLoad();
