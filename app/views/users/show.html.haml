@@ -1,6 +1,15 @@
-= gravatar_for @user
-
-= label "username", @user.username
-
-- if @user == current_user
-  = link_to 'Edit', edit_user_path(current_user)
+.userpage
+  %h1
+    = gravatar_for @user, :size => 48
+    =h @user.username
+  %hr
+  .vcard
+    %dl
+      %dt Name
+      %dd.fn= h @user.username
+    %dl
+      %dt Member since
+      %dd= @user.created_at.strftime "%b %d, %Y"
+    %dl
+      %dt Snippets count
+      %dd= @user.snippets.count
