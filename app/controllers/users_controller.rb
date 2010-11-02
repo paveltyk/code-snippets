@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user.save do |result|
       if result
         flash[:notice] = "Successfully updated profile."
-        redirect_to root_url
+        redirect_to @user
       else
         render :action => 'edit'
       end

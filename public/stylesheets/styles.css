@@ -74,6 +74,11 @@ form.login a.yandex {background:url("/images/oid-yandex.png") 0 0;}
 form.login a.google {background:url("/images/oid-google.png") 0 0;}
 form.login a.rambler {background:url("/images/oid-rambler.png") 0 0;}
 
+form.edit_user .text {font-size:22px;padding:2px 5px;display:block;width:370px;float:left;margin-bottom:15px;color:#777;}
+form.edit_user .text:focus {color:#333;}
+form.edit_user #user_username {margin-right:15px;}
+form.edit_user #user_openid_identifier {padding-left:36px;background:url("/images/openid-logo.png") no-repeat scroll 5px 2px;width:735px;height:28px;}
+
 form.snippet textarea, form.snippet .text {display:block;width:758px;}
 form.snippet textarea {padding:10px;margin-bottom:15px;}
 form.snippet textarea.code {height:260px;font-family:Consolas,Menlo,Monaco,'Lucida Console','DejaVu Sans Mono','Liberation Mono','Bitstream Vera Sans Mono','Courier New',monospace;}

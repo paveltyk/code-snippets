@@ -71,11 +71,11 @@ describe UsersController do
       end
 
       describe "#update" do
-        it "should update user and redirect" do
+        it "should update user and redirect to user_path" do
           user.should_receive(:save).and_yield(true)
           controller.should_receive(:current_user).at_least(1).and_return(user)
           put :update, :id => 1
-          response.should be_redirect
+          response.should redirect_to(user_path user)
         end
       end
     end
