@@ -51,6 +51,8 @@ article .description li {margin:2px 0;}
 
 article pre {margin:0 -15px 15px;}
 
+article a.show-description {font-size:11px;text-decoration:none;margin-top:-14px;display:none;position:absolute;opacity:.6;}
+
 /* http://dev.opera.com/articles/view/beautiful-ui-styling-with-css3-text-shadow-box-shadow-and-border-radius/ */
 .submit {border:1px solid #8ec1da;background-color:#ddeef6;color:#3985a8;padding:8px 30px 9px;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;text-shadow:0 -1px 1px #fff;font-size:16px;position:relative;}
 .submit:hover {border:1px solid #8ec1da;text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;}

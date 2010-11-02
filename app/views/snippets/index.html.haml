@@ -1,3 +1,5 @@
 = render :partial => 'snippets/snippet', :collection => @snippets
 
-=  will_paginate @snippets 
+=  will_paginate @snippets
+- content_for :javascript do
+  hideDescriptions();

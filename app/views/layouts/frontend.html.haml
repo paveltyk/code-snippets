@@ -16,18 +16,6 @@
       %section.main
         = render_flash
         = yield
-      -#
-        %aside
-          %h4 Search
-          %form{:action => "#", :class => "s"}
-            <input name="search" type="text" value="Type term and hit enter...">
-          %nav
-            %h4 Navigation
-            = render_navigation
-          %h4 Example Tag Cloud
-          %ul#tagcloud
-            - tag_cloud Snippet.tag_counts, %w(size-1 size-2 size-3 size-4) do |tag, css_class|
-              %li{:class => css_class}= link_to tag.name, tag_path(tag.name), :title => tag.name
       %footer
         %p
           == &copy; #{Time.now.year} Code Snippets is an OpenSource project.
@@ -36,3 +24,4 @@
     = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.placeholder', 'application'
     :javascript
       hljs.initHighlightingOnLoad();
+      $(document).ready(function(){#{yield :javascript}});
