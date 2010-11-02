@@ -16,6 +16,8 @@ section.main {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius
 footer {background-color:#fff;-moz-border-radius:5px;-webkit-border-radius:5px;display:block;}
 footer p {padding:15px 20px;}
 
+.clr {clear:both;height:0;margin:0;padding:0;overflow:hidden;}
+
 /* Alerts */
 .notice, .error, .warning, .error-explanation {-moz-border-radius:4px;-webkit-border-radius:4px;padding:5px 10px;margin-bottom:10px;border-style:solid;border-width:1px;}
 .error, .error-explanation {background:#FFCCCC;border-color:#FF9966;}
@@ -88,3 +90,8 @@ form.snippet .text {padding:5px 10px;margin-bottom:15px;}
 .userpage hr {margin:15px 0;}
 .userpage .vcard dl {margin:5px 0 0;}
 .userpage .vcard dl dt {color:#999;float:left;margin:0;width:115px;}
+
+.userlist a.item {border:1px solid #C0DEED;float:left;margin:3px;width:142px;display:block;text-decoration:none;padding:3px;color:#777;}
+.userlist a.item:hover {color:#2276BB;-moz-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-webkit-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);border-color:rgba(82, 168, 236, 0.75);}
+.userlist a.item img {margin-right:2px;vertical-align:middle;}
+.userlist .pagination {margin-top:10px;}

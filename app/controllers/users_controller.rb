@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:edit, :update]
 
   def index
-    @users = User.paginate :per_page => 5, :page => params[:page]
+    @users = User.paginate :per_page => 60, :page => params[:page], :order => 'users.username ASC'
   end
 
   def new

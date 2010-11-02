@@ -1,5 +1,7 @@
-%h1 users list
-- @users.each do |user|
-  %h2= h user.username
-  
-=  will_paginate @users 
+.userlist
+  - @users.each do |user|
+    - link_to user_path(user), :title => user.username, :class => 'item' do
+      = gravatar_for user, :size => 30
+      =h user.username
+  .clr
+  =  will_paginate @users
