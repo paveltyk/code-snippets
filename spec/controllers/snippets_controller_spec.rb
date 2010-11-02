@@ -43,6 +43,11 @@ describe SnippetsController do
         get :rss
         response.should be_success
       end
+      it "should not fail if there is snippet with blank description" do
+        Snippet.make :description => nil
+        get :rss
+        response.should be_success
+      end
     end
 
   end
