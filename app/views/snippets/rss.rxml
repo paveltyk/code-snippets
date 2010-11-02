@@ -12,7 +12,7 @@ xml.rss :version => "2.0" do
         xml.description "#{snippet.description_html} <pre><code>#{snippet.code}</code></pre>"
         xml.author snippet.user.username
         xml.link snippet_url(snippet)
-        xml.guid snippet_path(snippet)
+        xml.guid snippet_url(snippet)
       end
     end
 
