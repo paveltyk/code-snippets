@@ -9,7 +9,7 @@
     = snippet.created_at.strftime "%A, %B %d, %Y @"
     = link_to snippet.user.username, user_path(snippet.user), :title => snippet.user.username
   -if snippet.description.present?
-    .description= snippet.description.format_markdown
+    .description= snippet.description_html
   %pre= content_tag :code, h(snippet.code)
   .footer
     .tags= render_tag_list(snippet.tag_list)

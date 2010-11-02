@@ -11,4 +11,9 @@ class Snippet < ActiveRecord::Base
       "Code Snippet ##{self.id}"
     end
   end
+
+  def description_html
+    return description if description.blank?
+    RDiscount.new(description, :filter_html, :safelink, :no_pseudo_protocols, :smart, :autolink).to_html
+  end
 end
