@@ -5,12 +5,6 @@ describe UsersController do
     it "shoul know the route to /users GET" do
       params_from(:get, '/users').should == { :controller => "users", :action => "index" }
     end
-    it "should know the route to /register GET" do
-      params_from(:get, '/register').should == { :controller => "users", :action => "new" }
-    end
-    it "should know the route to /register POST" do
-      params_from(:post, '/register').should == { :controller => "users", :action => "create" }
-    end
     it "should know the route to /users/1/edit GET" do
       params_from(:get, '/users/1/edit').should == { :controller => "users", :action => "edit", :id => '1' }
     end

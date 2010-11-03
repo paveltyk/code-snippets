@@ -36,8 +36,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.rss 'snippets.rss', :controller => 'snippets', :action => 'rss'
   map.home 'home', :controller => 'home', :action => 'index', :conditions => { :method => :get }
-  map.register 'register', :controller => 'users', :action => 'new', :conditions => { :method => :get }
-  map.users 'register', :controller => 'users', :action => 'create', :conditions => { :method => :post }
 
   map.login 'login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
   map.user_sessions 'login', :controller => 'user_sessions', :action => 'create', :conditions => { :method => :post }
@@ -46,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search', :controller => 'tags', :action => 'search' 
   map.tag 'tag/:tag_name', :controller => 'tags', :action => 'index'
 
-  map.resources :users, :only => [:index, :edit, :update, :desctroy]
+  map.resources :users, :only => [:index, :edit, :show, :update, :destroy]
   map.resources :snippets, :only => [:index, :show]
 
   map.namespace :my do |my|
