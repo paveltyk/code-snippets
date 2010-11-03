@@ -47,6 +47,7 @@ article .footer .tags a:hover {color:#3a6a88;}
 
 article .description p {margin:5px 0;}
 article .description ul {list-style:circle inside none;margin:7px 0;}
+article .description ol {list-style:decimal inside none;margin:7px 0;}
 article .description li {margin:2px 0;}
 
 article pre {margin:0 -15px 15px;}
