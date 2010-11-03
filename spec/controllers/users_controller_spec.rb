@@ -17,6 +17,9 @@ describe UsersController do
     it "should know the route to /users/1 PUT" do
       params_from(:put, '/users/1').should == { :controller => "users", :action => "update", :id => '1' }
     end
+    it "should know the route to SHOW" do
+      params_from(:get, '/user-name').should == { :controller => "users", :action => "show", :id => 'user-name' }
+    end
   end
   context "with views" do
     integrate_views
@@ -29,31 +32,6 @@ describe UsersController do
       it "should assign users array" do
         get :index
         assigns[:users].should_not be_nil
-      end
-    end
-
-    describe "#new" do
-      it "should assign @user to new User object" do
-        get :new
-        assigns[:user].should be_an_instance_of(User)
-      end
-    end
-
-    describe "#create" do
-      let(:user) { User.make_unsaved }
-      it "should render action \"new\" if user not valid" do
-        user.should_receive(:valid?).and_return(false)
-        User.should_receive(:new).and_return(user)
-        post :create
-        response.should render_template('new')
-      end
-
-      it "should set notice and redirect if user is valid" do
-        user.should_receive(:valid?).and_return(true)
-        User.should_receive(:new).and_return(user)
-        post :create
-        response.should be_redirect
-        flash[:notice].should_not be_blank
       end
     end
 

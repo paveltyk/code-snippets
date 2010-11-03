@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  RESERVED_USERNAMES = %w{login logout snippets search register tag users home my}
+
   has_many :snippets, :dependent => :destroy
 
   AX = {:email => "http://axschema.org/contact/email",
@@ -10,6 +12,11 @@ class User < ActiveRecord::Base
   end
 
   before_validation :check_username
+  has_permalink :username, :update => true
+
+  def to_param
+    permalink
+  end
 
   private
   
@@ -19,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def check_username
-    self.username = Faker::Lorem.username if self.username.blank?
+    self.username = Faker::Name.name.gsub(/'/, '-') if self.username.blank? || RESERVED_USERNAMES.include?((self.username || '').downcase)
     if User.exists?(:username => self.username)
       self.username = "#{self.username} #{Time.now.to_i}"
     end

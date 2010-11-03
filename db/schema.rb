@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101102085646) do
+ActiveRecord::Schema.define(:version => 20101103094211) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -50,14 +50,17 @@ ActiveRecord::Schema.define(:version => 20101102085646) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
-    t.string   "openid_identifier"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "username"
+    t.string    "email"
+    t.string    "crypted_password"
+    t.string    "password_salt"
+    t.string    "persistence_token"
+    t.string    "openid_identifier"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "permalink"
   end
+
+  add_index "users", ["permalink"], :name => "index_users_on_permalink"
 
 end
