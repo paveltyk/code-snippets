@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_permalink!(params[:id])
+    @snippets = @user.snippets.paginate :page => params[:page], :order => 'snippets.created_at DESC', :per_page => 7
   end
 
   def update

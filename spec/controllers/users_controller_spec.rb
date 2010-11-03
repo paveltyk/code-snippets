@@ -51,6 +51,16 @@ describe UsersController do
         end
       end
     end
+
+    describe "#show" do
+      it "should assign snippets owned by user" do
+        user = User.make
+        snippet = Snippet.make :user => user
+        get :show, :id => user.to_param
+        assigns[:snippets].should eql([snippet])
+        response.should be_success
+      end
+    end
   end
 
 end

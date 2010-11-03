@@ -2,7 +2,6 @@
   %h1
     = gravatar_for @user, :size => 48
     =h @user.username
-  %hr
   .vcard
     %dl
       %dt Name
@@ -13,3 +12,6 @@
     %dl
       %dt Snippets count
       %dd= @user.snippets.count
+  .clr
+  %hr
+= render :file => 'snippets/index'
