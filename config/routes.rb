@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search', :controller => 'tags', :action => 'search' 
   map.tag 'tag/:tag_name', :controller => 'tags', :action => 'index'
 
-  map.resources :users, :only => [:index, :edit, :show, :update, :destroy]
+  map.resources :users, :only => [:index, :edit, :update]
   map.resources :snippets, :only => [:index, :show]
 
   map.namespace :my do |my|
