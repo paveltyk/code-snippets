@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
       xml.item do
         xml.pubDate snippet.created_at.rfc822
         xml.title snippet.title
-        xml.description "#{snippet.description_html} <pre><code>#{snippet.code}</code></pre>"
+        xml.description "##{snippet.tag_list.map.join(' #')} #{snippet.description_html} <pre><code>#{snippet.code}</code></pre>"
         xml.author snippet.user.username
         xml.link snippet_url(snippet)
         xml.guid snippet_url(snippet)
