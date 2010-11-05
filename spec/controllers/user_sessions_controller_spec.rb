@@ -14,7 +14,6 @@ describe UserSessionsController do
       params_from(:get, '/logout').should == { :controller => 'user_sessions', :action => 'destroy' }
     end
   end
-  
 
   describe "#new" do
     it "should assign @user_session variable" do
@@ -24,20 +23,33 @@ describe UserSessionsController do
   end
 
   describe "#create" do
-    let(:user) { User.make :password => 'password' }
-
+    it "should set notice and redirect to root_url if openid identifier is valid (for existent user)" do
+      user = User.make :openid_identifier => 'http://localhost:1123/john.doe?openid.success=true'
+      stub_authenticate_by_openid :url => user.openid_identifier
+      post :create, :user_session => { :openid_identifier => user.openid_identifier }
+      controller.session["user_credentials"].should eql(user.persistence_token)
+    end
+    it "should create new user if openid identifier not exist yet" do
+      stub_authenticate_by_openid 'email' => 'some@email.com'
+      expect {
+        post :create, :user_session => { :openid_identifier => "http://someone.example.com" }
+      }.to change(User, :count).by(1)
+    end
+    it "should automatically log in new user" do
+      stub_authenticate_by_openid 'email' => 'some@email.com'
+      post :create, :user_session => { :openid_identifier => "http://someone.example.com" }
+      controller.session["user_credentials"].should eql(User.last.persistence_token)
+    end
     it "should render action \"new\" if credentials not valid" do
       post :create
       response.should render_template('new')
+      controller.session["user_credentials"].should be_nil
     end
-    it "should set notice and redirect to home_url if credentials are valid" do
-      post :create, :user_session => { :username => user.username, :password => 'password' }
-      flash[:notice].should_not be_blank
-      response.should redirect_to(home_url)
-    end
-    it "should login by email as well" do
-      post :create, :user_session => { :username => user.email, :password => 'password' }
-      assert_equal controller.session["user_credentials"], user.persistence_token
+    it "should render action \"new\" if open id authentication failed" do
+      stub_authenticate_by_openid :success => false
+      post :create, :user_session => { :openid_identifier => "http://someone.example.com" }
+      response.should render_template('new')
+      controller.session["user_credentials"].should be_nil
     end
   end
 

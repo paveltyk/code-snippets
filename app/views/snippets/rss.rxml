@@ -1,0 +1,20 @@
+xml.instruct! :xml, :version => "1.0"
+xml.rss :version => "2.0" do
+  xml.channel do
+    xml.title "Code Snippets Feed"
+    xml.description "Code snippets storage with tag support and reach search functionality"
+    xml.link rss_url
+
+    @snippets.each do |snippet|
+      xml.item do
+        xml.pubDate snippet.created_at.rfc822
+        xml.title snippet.title
+        xml.description "#{snippet.tag_list.map{|x| "##{x}"}.join(", ")}\n#{snippet.description_html}\n<pre><code>#{snippet.code}</code></pre>"
+        xml.author snippet.user.username
+        xml.link snippet_url(snippet)
+        xml.guid snippet_url(snippet)
+      end
+    end
+
+  end
+end

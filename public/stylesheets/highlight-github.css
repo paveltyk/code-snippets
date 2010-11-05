@@ -7,13 +7,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 pre {
   display:block;padding:15px;
   color: #000;
-  background: #eee;
+  background-color: #EAF4F9;
   -moz-border-radius:4px;-webkit-border-radius:4px;
   -moz-box-shadow:0 2px 2px rgba(0,0,0,0.4);
   -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.4);
   overflow:hidden;
   line-height:111%;
   max-height:7000px;
+  margin-bottom:15px;
 }
 
 pre .comment,

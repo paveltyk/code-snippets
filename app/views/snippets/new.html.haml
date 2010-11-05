@@ -1,6 +1,0 @@
-- form_for [current_user, @snippet] do |f|
-  = f.error_messages
-  = render :partial => 'snippets/fields', :locals => { :f => f }
-  = f.submit 'Create'
-
-= link_to 'Back', user_snippets_path(current_user)

@@ -1,0 +1,7 @@
+.userlist
+  - @users.each do |user|
+    - link_to user_path(user), :title => user.username, :class => 'item' do
+      = gravatar_for user, :size => 30
+      =h "#{user.username} (#{user.snippets.count})"
+  .clr
+  =  will_paginate @users

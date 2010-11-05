@@ -12,16 +12,19 @@ describe User do
       user.should have_at_least(1).error_on(:email)
     end
 
-    it "should not be valid with blank username" do
+    it "should generate username if it was blank" do
       user = User.make_unsaved :username => nil
-      user.should_not be_valid
-      user.should have_at_least(1).error_on(:username)
+      user.should be_valid
+      user.username.should_not be_blank
     end
 
-    it "should not be valid if password confirmation does not match" do
-      user = User.make_unsaved :password_confirmation => 'some password confirmation'
-      user.should_not be_valid
-      user.should have_at_least(1).error_on(:password)
+    User::RESERVED_USERNAMES.each do |reserved_username|
+      it "should change reserved username \"#{reserved_username}\" to something else" do
+        user = User.make_unsaved :username => reserved_username
+        user.should be_valid
+        user.username.should_not eql(reserved_username)
+      end
     end
+
   end
 end
