@@ -18,12 +18,6 @@ describe User do
       user.username.should_not be_blank
     end
 
-    it "should not be valid if password confirmation does not match" do
-      user = User.make_unsaved :password_confirmation => 'some password confirmation'
-      user.should_not be_valid
-      user.should have_at_least(1).error_on(:password)
-    end
-    
     User::RESERVED_USERNAMES.each do |reserved_username|
       it "should change reserved username \"#{reserved_username}\" to something else" do
         user = User.make_unsaved :username => reserved_username

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101103094211) do
+ActiveRecord::Schema.define(:version => 20101105091014) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -27,19 +27,19 @@ ActiveRecord::Schema.define(:version => 20101103094211) do
   end
 
   create_table "snippets", :force => true do |t|
-    t.integer   "user_id"
-    t.text      "description"
-    t.text      "code"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "cached_tag_list"
+    t.integer  "user_id"
+    t.text     "description"
+    t.text     "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cached_tag_list"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer   "tag_id"
-    t.integer   "taggable_id"
-    t.string    "taggable_type"
-    t.timestamp "created_at"
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
@@ -50,15 +50,13 @@ ActiveRecord::Schema.define(:version => 20101103094211) do
   end
 
   create_table "users", :force => true do |t|
-    t.string    "username"
-    t.string    "email"
-    t.string    "crypted_password"
-    t.string    "password_salt"
-    t.string    "persistence_token"
-    t.string    "openid_identifier"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "permalink"
+    t.string   "username"
+    t.string   "email"
+    t.string   "persistence_token"
+    t.string   "openid_identifier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   add_index "users", ["permalink"], :name => "index_users_on_permalink"

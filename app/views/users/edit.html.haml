@@ -1,17 +1,7 @@
 - form_for @user do |form|
   = form.error_messages
-
   = form.text_field :username, :placeholder => 'User name', :title => 'User name'
-
   = form.text_field :email, :placeholder => 'Email', :title => 'Email'
-
-  - if @user.openid_identifier.blank?
-    = form.label :password, "Password"
-    = form.password_field :password
-
-    = form.label :password_confirmation, "Password confirmation"
-    = form.password_field :password_confirmation
-
   = form.text_field :openid_identifier, :placeholder => 'OpenID URL', :title => 'OpenID URL'
   .clr
   = form.submit "Update"

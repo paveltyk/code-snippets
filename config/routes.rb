@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
     my.resources :snippets, :only => [:index, :new, :create, :edit, :update, :destroy]
   end
 
-  map.user ':id', :controller => 'users', :action => 'show'
+  map.user ':id', :controller => 'users', :action => 'show', :conditions => {:method => :get}
+  map.user ':id', :controller => 'users', :action => 'update', :conditions => {:method => :put}
 
 end
