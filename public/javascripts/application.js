@@ -11,6 +11,10 @@ function hideDescriptions() {
           function(){$('.show-description', this).fadeOut();});
 }
 
+function afterSearchComplete(){
+  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});hideDescriptions();
+}
+
 $(document).ready(function(){
   $('input[placeholder], textarea[placeholder]').placeholder();
 
@@ -23,4 +27,12 @@ $(document).ready(function(){
     }).hide();
     delete regexp;
   });
+
+  $('#search-form').ajaxForm({target: '#results',success: afterSearchComplete});
+  $('#tag-name-search').keyup(function(){
+    $(this).doTimeout('typing', 1000, function(){$(this).parent('form').submit();});
+  });
+  $('#tag-name-search').ajaxStart(function() {$(this).addClass('ajax');});
+  $('#tag-name-search').ajaxStop(function() {$(this).removeClass('ajax');});
+
 });

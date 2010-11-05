@@ -87,6 +87,7 @@ form.snippet textarea.description {height:100px;}
 form.snippet .text {padding:5px 10px;margin-bottom:15px;}
 
 #tag-name-search {display:block;margin-bottom:10px;width:758px;font-size:24px;padding:5px 10px;}
+#tag-name-search.ajax {background:url("/images/ajax-loader.gif") no-repeat 755px 11px;}
 .tag-cloud li {display:inline;margin:0 10px 0 0;}
 .tag-cloud .size-1 a {font-size:1em;}
 .tag-cloud .size-2 a {font-size:1.4em;}

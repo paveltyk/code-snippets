@@ -21,7 +21,7 @@
           == &copy; #{Time.now.year} Code Snippets is an #{link_to 'OpenSource project', 'http://github.com/PavelTyk/code-snippets', :title => 'Code Snippets GitHub repository'}.
           == Subscribe to #{link_to 'RSS feed', rss_url, :title => 'RSS feed'}.
 
-    = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.placeholder', 'application'
+    = javascript_include_tag 'jquery.min', 'jrails.min', 'highlight.min', 'jquery.placeholder', 'jquery.form', 'jquery.dotimeout', 'application'
     :javascript
       hljs.initHighlightingOnLoad();
       $(document).ready(function(){#{yield :javascript}});

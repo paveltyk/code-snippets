@@ -1,9 +1,10 @@
 class SnippetsController < ApplicationController
   def index
-    @snippets = Snippet.paginate :page => params[:page], :per_page => 7, :order => 'snippets.created_at DESC', :include => :user
+    @snippets = Snippet.with_description_like(params[:q]).paginate :page => params[:page], :per_page => 7, :order => 'snippets.created_at DESC', :include => :user
 
     respond_to do |format|
       format.html
+      format.js { render :partial => 'snippets/snippet', :collection => @snippets }
     end
   end
 
