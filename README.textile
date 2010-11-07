@@ -10,3 +10,6 @@ This project uses gem bundler, so you need to install it at first.
 
 <pre><code>$ gem install bundler
 $ sudo bundle install --without production</code></pre>
+
+
+As of v0.2 it support full-text search capabilityies of Postgres. It's not tested under MySQL or SQLite either.
