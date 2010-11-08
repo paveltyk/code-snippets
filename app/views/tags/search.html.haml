@@ -1,4 +1,4 @@
-- form_tag snippets_path, :method => :get, :id => 'search-form' do |f|
+- form_tag snippets_path, :method => :get, :id => 'search-form' do
   = text_field_tag :q, nil, :placeholder => 'Type tag RegExp here', :id => 'tag-name-search', :title => 'RegExp to Filter Tags', :autocomplete => 'off'
 %ul.tag-cloud
   - tag_cloud @tag_counts, %w(size-1 size-2 size-3 size-4) do |tag, css_class|
