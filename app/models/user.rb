@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   RESERVED_USERNAMES = %w{login logout snippets search register tag users home my}
 
   has_many :snippets, :dependent => :destroy
+  #attr_accessor :crypted_password_field, :password_salt_field, :password, :password_confirmation
 
   AX = {:email => "http://axschema.org/contact/email",
         :first => "http://axschema.org/namePerson/first",
@@ -44,6 +45,14 @@ class User < ActiveRecord::Base
 
   def username_reserved?
     RESERVED_USERNAMES.include? self.username.to_s.downcase
+  end
+
+  def attributes_to_save
+    attributes.clone.delete_if do |k, v|
+      [:id, :persistence_token, :perishable_token, :single_access_token, :login_count, :failed_login_count,
+       :last_request_at, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip, :created_at,
+       :updated_at, :lock_version].include?(k.to_sym)
+    end
   end
 end
   
