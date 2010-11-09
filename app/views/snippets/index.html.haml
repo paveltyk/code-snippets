@@ -1,5 +1,11 @@
-= render :partial => 'snippets/snippet', :collection => @snippets
-
-=  will_paginate @snippets
+- form_tag nil, :method => :get, :id => 'search-form' do
+  = text_field_tag :q, params[:q], :placeholder => 'Type tag RegExp here to start searching', :id => 'tag-name-search', :title => 'RegExp to Filter Tags', :autocomplete => 'off'
+%ul.tag-cloud
+  - tag_cloud @tag_counts, %w(size-1 size-2 size-3 size-4) do |tag, css_class|
+    %li{:class => css_class}= link_to tag.name, tag_path(tag.name), :title => tag.name
+%hr
+#results= render :partial => 'snippets/snippets_list_with_pagination'
 - content_for :javascript do
   hideDescriptions();
+  if (!$('#tag-name-search').hasClass('placeholder')) filterTagCloud($('#tag-name-search').val());
+

@@ -2,7 +2,8 @@ class My::SnippetsController < ApplicationController
   before_filter :require_user
 
   def index
-    @snippets = current_user.snippets.paginate :per_page => 5, :page => params[:page], :order => 'snippets.created_at DESC'
+    @snippets = current_user.snippets.with_description_like(params[:q]).paginate :per_page => 5, :page => params[:page], :order => 'snippets.created_at DESC'
+    @tag_counts = current_user.snippets.tag_counts
 
     respond_to do |format|
       format.html { render :template => 'snippets/index'}

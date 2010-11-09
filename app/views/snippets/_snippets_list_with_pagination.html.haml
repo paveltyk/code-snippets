@@ -1,0 +1,5 @@
+-if @snippets.present?
+  = render :partial => 'snippets/snippet', :collection => @snippets
+  = will_paginate @snippets
+- else
+  %p No snippets found

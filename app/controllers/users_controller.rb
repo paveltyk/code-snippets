@@ -11,7 +11,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_permalink!(params[:id])
-    @snippets = @user.snippets.paginate :page => params[:page], :order => 'snippets.created_at DESC', :per_page => 7
+    @snippets = @user.snippets.with_description_like(params[:q]).paginate :page => params[:page], :order => 'snippets.created_at DESC', :per_page => 7
+    @tag_counts = @user.snippets.tag_counts
+
+    respond_to do |format|
+      format.html
+      format.js { render :partial => 'snippets/snippets_list_with_pagination' }
+    end
   end
 
   def update

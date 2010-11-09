@@ -15,18 +15,20 @@ function afterSearchComplete(){
   $('pre code').each(function(i, e) {hljs.highlightBlock(e)});hideDescriptions();
 }
 
+function filterTagCloud(str) {
+  var regexp = new RegExp(str);
+  $('.tag-cloud li:hidden').show();
+  $('.tag-cloud li').filter(function(){
+    return !$('a', this).text().match(regexp);
+  }).hide();
+  delete regexp;
+}
+
 $(document).ready(function(){
   $('input[placeholder], textarea[placeholder]').placeholder();
 
   //Tag cloud search
-  $('#tag-name-search').keyup(function(){
-    var regexp = new RegExp($(this).val());
-    $('.tag-cloud li:hidden').show();
-    $('.tag-cloud li').filter(function(){
-      return !$('a', this).text().match(regexp);
-    }).hide();
-    delete regexp;
-  });
+  $('#tag-name-search').keyup(function(){filterTagCloud($(this).val());});
 
   $('#search-form').ajaxForm({target: '#results',success: afterSearchComplete});
   $('#tag-name-search').keyup(function(){
