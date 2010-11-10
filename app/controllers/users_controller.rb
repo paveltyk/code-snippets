@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user.save do |result|
       if result
         flash[:notice] = "Successfully updated profile."
-        redirect_to @user
+        redirect_to edit_profile_path
       else
         render :action => 'edit'
       end
