@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101105091014) do
+ActiveRecord::Schema.define(:version => 20101111143136) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20101105091014) do
     t.string  "server_url"
     t.string  "salt",       :null => false
   end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "snippets", :force => true do |t|
     t.integer  "user_id"
@@ -58,7 +68,5 @@ ActiveRecord::Schema.define(:version => 20101105091014) do
     t.datetime "updated_at"
     t.string   "permalink"
   end
-
-  add_index "users", ["permalink"], :name => "index_users_on_permalink"
 
 end

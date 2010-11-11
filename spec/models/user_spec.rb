@@ -63,4 +63,55 @@ describe User do
       user.update_attribute :email, 'new@email.com'
     }.to_not change(user, :username)
   end
+
+  describe "relationships" do
+    let(:user) { User.make }
+    let(:users) { (1..2).map { User.make } }
+
+    [:following, :followers, :follow!, :following?].each do |method_name|
+      it "should respond to \"#{method_name}\"" do
+        User.new.respond_to?(method_name).should be_true
+      end
+    end
+
+    describe "#follow!" do
+      it "should create valid relationship and return it" do
+        relationship = user.follow!(users.first)
+        relationship.should be_an_instance_of(Relationship)
+        relationship.should be_valid
+        relationship.should_not be_new_record
+      end
+      it "should raise exception if relationship not valid" do
+        lambda { user.follow! }.should raise_exception
+      end
+    end
+
+    context "with 2 followed users" do
+      before(:all) { users.each { |u| user.following << u } }
+      after(:all) { User.destroy_all }
+      it "should have 2 relationships" do
+        user.relationships.count.should eql(2)
+      end
+      it "should return all followed users" do
+        user.following.should eql(users)
+      end
+      it "should know if user following another user" do
+        user.should be_following(users.first)
+      end
+      it "should know if user not following another user" do
+        users.first.should_not be_following(users.last)
+      end
+    end
+
+    context "with 2 following users" do
+      before(:all) { users.each { |u| user.followers << u } }
+      after(:all) { User.destroy_all }
+      it "should have 2 reverse relationships" do
+        user.reverse_relationships.count.should eql(2)
+      end
+      it "should return all followers" do
+        user.followers.should eql(users)
+      end
+    end
+  end
 end

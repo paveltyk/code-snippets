@@ -2,7 +2,10 @@ class User < ActiveRecord::Base
   RESERVED_USERNAMES = %w{login logout snippets search register tag users home my}
 
   has_many :snippets, :dependent => :destroy
-  #attr_accessor :crypted_password_field, :password_salt_field, :password, :password_confirmation
+  has_many :relationships, :foreign_key => :follower_id, :dependent => :destroy
+  has_many :reverse_relationships, :foreign_key => :followed_id, :class_name => 'Relationship', :dependent => :destroy
+  has_many :following, :through => :relationships, :source => :followed
+  has_many :followers, :through => :reverse_relationships, :source => :follower
 
   AX = {:email => "http://axschema.org/contact/email",
         :first => "http://axschema.org/namePerson/first",
@@ -16,6 +19,14 @@ class User < ActiveRecord::Base
   validate :validate_reserved_usernames
 
   has_permalink :username, :update => true
+
+  def follow!(user)
+    relationships.create! :followed => user
+  end
+
+  def following?(user)
+    relationships.exists? :followed_id => user.id
+  end
 
   def to_param
     permalink
