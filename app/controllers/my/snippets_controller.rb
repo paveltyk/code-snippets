@@ -1,5 +1,5 @@
 class My::SnippetsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_auth
 
   def index
     @snippets = current_user.snippets.with_description_like(params[:q]).paginate :per_page => 5, :page => params[:page], :order => 'snippets.created_at DESC'
