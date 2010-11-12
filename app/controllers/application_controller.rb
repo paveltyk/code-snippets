@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def require_auth
     unless current_user
       flash[:notice] = "You must be logged in to access this page"
-      redirect_to root_path
+      redirect_to login_path
     end
   end
   

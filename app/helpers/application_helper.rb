@@ -7,4 +7,13 @@ module ApplicationHelper
       end
     end
   end
+  def follow_link(user = nil)
+    user ||= @user
+    return if current_user.present? && current_user == user
+    if current_user.try(:following?, user)
+      return link_to 'Unfollow', unfollow_path(user), :class => 'button', :method => :delete
+    else
+      return link_to 'Follow', follow_path(user), :class => 'button', :method => :post
+    end
+  end
 end

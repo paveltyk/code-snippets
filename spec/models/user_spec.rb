@@ -68,21 +68,23 @@ describe User do
     let(:user) { User.make }
     let(:users) { (1..2).map { User.make } }
 
-    [:following, :followers, :follow!, :following?].each do |method_name|
+    [:following, :followers, :follow, :following?].each do |method_name|
       it "should respond to \"#{method_name}\"" do
         User.new.respond_to?(method_name).should be_true
       end
     end
 
-    describe "#follow!" do
+    describe "#follow" do
       it "should create valid relationship and return it" do
-        relationship = user.follow!(users.first)
+        relationship = user.follow(users.first)
         relationship.should be_an_instance_of(Relationship)
         relationship.should be_valid
         relationship.should_not be_new_record
       end
-      it "should raise exception if relationship not valid" do
-        lambda { user.follow! }.should raise_exception
+      it "should return invalid relationship if it is not valid" do
+        relationship = user.follow nil
+        relationship.should_not be_valid
+        relationship.should be_an_instance_of(Relationship)
       end
     end
 

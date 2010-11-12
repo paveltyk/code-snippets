@@ -27,4 +27,9 @@ ActionController::Routing::Routes.draw do |map|
     u.user ':id', :action => 'update', :conditions => {:method => :put}
   end
 
+  map.with_options :controller => 'relationships' do |r|
+    r.follow 'follow/:user_permalink', :action => 'create', :conditions => {:method => :post}
+    r.unfollow 'unfollow/:user_permalink', :action => 'destroy', :conditions => {:method => :delete}
+  end
+
 end

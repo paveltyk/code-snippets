@@ -2,6 +2,7 @@
   %h1
     = gravatar_for @user, :size => 48
     =h @user.username
+    = follow_link
   .vcard
     %dl
       %dt Name

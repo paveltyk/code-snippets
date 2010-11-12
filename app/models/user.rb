@@ -20,8 +20,12 @@ class User < ActiveRecord::Base
 
   has_permalink :username, :update => true
 
-  def follow!(user)
-    relationships.create! :followed => user
+  def follow(user)
+    relationships.create :followed => user
+  end
+
+  def unfollow(user)
+    relationships.find_by_followed_id(user.id).try :destroy
   end
 
   def following?(user)
