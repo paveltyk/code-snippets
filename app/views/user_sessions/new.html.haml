@@ -1,6 +1,6 @@
 - form_for @user_session, :html => { :class => 'login' } do |form|
   = form.error_messages
-  = form.text_field :openid_identifier, :placeholder => "Your OpenID URL"
+  = form.text_field :openid_identifier, :placeholder => "Login or Register via OpenID", :title => "Login or Register using your OpenID provider"
   = form.submit "Login"
 
   .oid
