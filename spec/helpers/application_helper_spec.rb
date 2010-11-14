@@ -23,5 +23,8 @@ describe ApplicationHelper do
       helper.follow_link(User.make).should =~ />Follow</
     end
   end
-
+  it "should set page title" do
+    helper.should_receive(:content_for).once
+    helper.title 'Page title'
+  end
 end

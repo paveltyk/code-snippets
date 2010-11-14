@@ -16,4 +16,7 @@ module ApplicationHelper
       return link_to 'Follow', follow_path(user), :class => 'button', :method => :post
     end
   end
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
 end
