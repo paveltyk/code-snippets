@@ -27,6 +27,19 @@ function filterTagCloud(str) {
 $(document).ready(function(){
   $('input[placeholder], textarea[placeholder]').placeholder();
 
+  //OpenID
+  $('#user_session_openid_identifier').blur(function() {
+    var input = $(this);
+    if (input.val() == 'http://') {
+      input.val('');
+    }
+  }).focus(function() {
+    var input = $(this);
+    if (!input.val()) {
+      input.val('http://');
+    }
+  });
+
   //Tag cloud search
   $('#tag-name-search').keyup(function(){filterTagCloud($(this).val());});
 
