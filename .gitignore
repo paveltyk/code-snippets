@@ -6,3 +6,5 @@
 config/database.yml
 log/
 tmp/
+.rvmrc
+
