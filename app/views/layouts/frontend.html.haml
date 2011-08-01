@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= ['Code Snippets', yield(:title)].compact.join(' | ')
+    %title= [yield(:title), 'Code Snippets'].delete_if(&:blank?).compact.join(' | ')
     =auto_discovery_link_tag :rss, rss_url, {:title => "Snippets RSS"}
     %meta{:content => 'text/html; charset=utf-8', 'http-equiv' => 'content-type'}
     %meta{:content => '', :name => 'keywords'}
