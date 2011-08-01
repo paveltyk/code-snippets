@@ -8,6 +8,7 @@
     %meta{:content => '', :name => 'description'}
     %link{:rel => "shortcut icon", :href => "/favicon.gif"}
     = stylesheet_link_tag 'reset', 'highlight-github', 'styles'
+    = render_google_analytics if Rails.env.production?
   %body
     #container
       %header
@@ -25,3 +26,4 @@
     :javascript
       hljs.initHighlightingOnLoad();
       $(document).ready(function(){#{yield :javascript}});
+
