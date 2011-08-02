@@ -55,8 +55,8 @@ article pre {margin:0 -15px 15px;}
 article a.show-description {font-size:11px;text-decoration:none;margin-top:-14px;display:none;position:absolute;opacity:.6;}
 
 /* http://dev.opera.com/articles/view/beautiful-ui-styling-with-css3-text-shadow-box-shadow-and-border-radius/ */
-.submit {border:1px solid #8ec1da;background-color:#ddeef6;color:#3985a8;padding:8px 30px 9px;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;text-shadow:0 -1px 1px #fff;font-size:16px;position:relative;}
-.submit:hover {border:1px solid #8ec1da;text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;}
+.submit, .button {border:1px solid #8ec1da;background-color:#ddeef6;color:#3985a8;padding:8px 30px 9px;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;text-shadow:0 -1px 1px #fff;font-size:16px;font-weight:normal;position:relative;text-decoration:none;}
+.submit:hover, .button:hover {border:1px solid #8ec1da;text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);-webkit-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;-moz-box-shadow:inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 12px #8ec1da;text-decoration:none;}
 
 textarea, .text {-webkit-border-radius:4px;-moz-border-radius:4px;-moz-box-shadow:0 1px #eee;-webkit-box-shadow:0 1px #eee;border:1px solid #CCCCCC;color:#222222;font:14px Helvetica Neue,Arial,sans-serif;}
 textarea:focus, .text:focus {-moz-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-webkit-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);border-color:rgba(82, 168, 236, 0.75);}
@@ -87,6 +87,7 @@ form.snippet textarea.description {height:100px;}
 form.snippet .text {padding:5px 10px;margin-bottom:15px;}
 
 #tag-name-search {display:block;margin-bottom:10px;width:758px;font-size:24px;padding:5px 10px;}
+#tag-name-search.ajax {background:url("/images/ajax-loader.gif") no-repeat 755px 11px;}
 .tag-cloud li {display:inline;margin:0 10px 0 0;}
 .tag-cloud .size-1 a {font-size:1em;}
 .tag-cloud .size-2 a {font-size:1.4em;}
@@ -95,6 +96,7 @@ form.snippet .text {padding:5px 10px;margin-bottom:15px;}
 
 .userpage h1 {font-size:30px;color:#555;font-weight:bold;height:54px;line-height:54px;margin-bottom:0;float:left;}
 .userpage h1 img {border:1px solid #DDDDDD;padding:3px;vertical-align:bottom;}
+.userpage h1 .button{font-size:10px;padding:3px 5px;vertical-align:middle;}
 .userpage hr {margin:15px 0;}
 .userpage .vcard {width:200px;float:right;}
 .userpage .vcard dl {margin:4px 0 0;white-space:nowrap;}

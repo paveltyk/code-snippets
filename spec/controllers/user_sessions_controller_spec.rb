@@ -59,14 +59,12 @@ describe UserSessionsController do
       UserSession.should_receive(:find).and_return(user_session)
       user_session.should_receive(:destroy).and_return(nil)
       get :destroy
-      flash[:notice].should =~ /Successfully logged out/
       response.should be_redirect
     end
 
     it "should set notice and redirect if not logged in" do
       UserSession.should_receive(:find).and_return(nil)
       get :destroy
-      flash[:notice].should =~ /You haven't logged in/
       response.should be_redirect
     end
 

@@ -1,9 +1,11 @@
+- title 'Login or Register via OpenID'
 - form_for @user_session, :html => { :class => 'login' } do |form|
   = form.error_messages
-  = form.text_field :openid_identifier, :placeholder => "Your OpenID URL"
+  = form.text_field :openid_identifier, :placeholder => "Login or Register via OpenID", :title => "Login or Register using your OpenID provider"
   = form.submit "Login"
 
   .oid
     = link_to 'Google OpenID', login_path(:user_session => {:openid_identifier => 'https://www.google.com/accounts/o8/id'}), :title => 'Enter via Google OpenID', :method => :post, :class => 'oid google'
     = link_to 'Yandex OpenID', login_path(:user_session => {:openid_identifier => 'http://openid.yandex.ru'}), :title => 'Enter via Yandex OpenID', :method => :post, :class => 'oid yandex'
     = link_to 'Rambler OpenID', login_path(:user_session => {:openid_identifier => 'http://rambler.ru'}), :title => 'Enter via Rambler OpenID', :method => :post, :class => 'oid rambler'
+

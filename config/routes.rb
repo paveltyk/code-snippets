@@ -1,57 +1,35 @@
 ActionController::Routing::Routes.draw do |map|
-  # The priority is based upon order of creation: first created -> highest priority.
 
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
-
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
-
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
-
-  # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  
   map.root :controller => "snippets"
 
   map.rss 'snippets.rss', :controller => 'snippets', :action => 'rss'
   map.home 'home', :controller => 'home', :action => 'index', :conditions => { :method => :get }
 
-  map.login 'login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
-  map.user_sessions 'login', :controller => 'user_sessions', :action => 'create', :conditions => { :method => :post }
-  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
+  map.with_options :controller => 'user_sessions' do |us|
+    us.login 'login', :action => 'new', :conditions => { :method => :get }
+    us.user_sessions 'login',:action => 'create', :conditions => { :method => :post }
+    us.logout 'logout', :action => 'destroy'
+  end
 
-  map.search 'search', :controller => 'tags', :action => 'search' 
   map.tag 'tag/:tag_name', :controller => 'tags', :action => 'index'
 
-  map.resources :users, :only => [:index, :edit, :update]
   map.resources :snippets, :only => [:index, :show]
 
   map.namespace :my do |my|
     my.resources :snippets, :only => [:index, :new, :create, :edit, :update, :destroy]
   end
 
-  map.user ':id', :controller => 'users', :action => 'show', :conditions => {:method => :get}
-  map.user ':id', :controller => 'users', :action => 'update', :conditions => {:method => :put}
+  map.with_options :controller => 'users' do |u|
+    u.users 'users', :action => 'index', :conditions => {:method => :get}
+    u.edit_profile 'my/profile', :action => 'edit', :conditions => {:method => :get}
+    u.user ':id', :action => 'update', :conditions => {:method => :put}
+    u.user ':id', :action => 'show', :conditions => {:method => :get}
+    u.user ':id', :action => 'update', :conditions => {:method => :put}
+  end
+
+  map.with_options :controller => 'relationships' do |r|
+    r.follow 'follow/:user_permalink', :action => 'create', :conditions => {:method => :post}
+    r.unfollow 'unfollow/:user_permalink', :action => 'destroy', :conditions => {:method => :delete}
+  end
 
 end

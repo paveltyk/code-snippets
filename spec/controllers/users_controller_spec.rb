@@ -5,11 +5,11 @@ describe UsersController do
     it "shoul know the route to /users GET" do
       params_from(:get, '/users').should == { :controller => "users", :action => "index" }
     end
-    it "should know the route to /users/1/edit GET" do
-      params_from(:get, '/users/1/edit').should == { :controller => "users", :action => "edit", :id => '1' }
+    it "should know the route to /my/profile GET" do
+      params_from(:get, '/my/profile').should == { :controller => "users", :action => "edit" }
     end
-    it "should know the route to /users/1 PUT" do
-      params_from(:put, '/users/1').should == { :controller => "users", :action => "update", :id => '1' }
+    it "should know the route to /user-name PUT" do
+      params_from(:put, '/user-name').should == { :controller => "users", :action => "update", :id => 'user-name' }
     end
     it "should know the route to SHOW" do
       params_from(:get, '/user-name').should == { :controller => "users", :action => "show", :id => 'user-name' }
@@ -43,11 +43,11 @@ describe UsersController do
       end
 
       describe "#update" do
-        it "should update user and redirect to user_path" do
+        it "should update user and redirect to edit_profile_path" do
           user.should_receive(:save).and_yield(true)
           controller.should_receive(:current_user).at_least(1).and_return(user)
           put :update, :id => 1
-          response.should redirect_to(user_path user)
+          response.should redirect_to(edit_profile_path)
         end
       end
     end

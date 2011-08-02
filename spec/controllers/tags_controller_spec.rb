@@ -3,9 +3,6 @@ require 'spec_helper'
 describe TagsController do
 
   describe "routing" do
-    it "should know the search route" do
-      params_from(:get, '/search').should == { :controller => 'tags', :action => 'search' }
-    end
     it "should know the route to tag" do
       params_from(:get, '/tag/name').should == { :controller => 'tags', :action => 'index', :tag_name => 'name'}
     end
@@ -24,17 +21,6 @@ describe TagsController do
         Snippet.make :tag_list => "other_tag"
         get :index, :tag_name => 'rails'
         assigns[:snippets].all?{ |s| s.tag_list.include?('rails') }.should be_true
-      end
-    end
-
-    describe "GET search" do
-      it "should render \"search\" template" do
-        get :search
-        response.should render_template('tags/search')
-      end
-      it "should assign tag counts" do
-        get :search
-        assigns[:tag_counts].should_not be_nil
       end
     end
 
