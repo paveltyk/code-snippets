@@ -27,6 +27,28 @@ function filterTagCloud(str) {
 $(document).ready(function(){
   $('input[placeholder], textarea[placeholder]').placeholder();
 
+  $("textarea").keydown(function(e) {
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
+    var val = $(this).val();
+    switch(e.keyCode) {
+      case 13:
+        var match = val.substring(0, start).match(/(^|\n)([ \t]*)([^\n]*)$/);
+        if (!match) return;
+        var spaces = match[2];
+        var length = spaces.length + 1;
+        $(this).val(val.substring(0, start) + '\n' + spaces + val.substr(end));
+        this.setSelectionRange(start + length, start + length);
+        return false;
+      case 9:
+        if (end - start == 0) {
+          $(this).val(val.substring(0, start) + '  ' + val.substr(end));
+          this.setSelectionRange(start + 2, start + 2);
+        }
+        return false;
+    }
+  })
+
   //OpenID
   $('#user_session_openid_identifier').blur(function() {
     var input = $(this);
