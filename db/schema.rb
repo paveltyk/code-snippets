@@ -69,4 +69,6 @@ ActiveRecord::Schema.define(:version => 20101111143136) do
     t.string   "permalink"
   end
 
+  add_index "users", ["permalink"], :name => "index_users_on_permalink"
+
 end
