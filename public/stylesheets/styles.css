@@ -85,6 +85,9 @@ form.snippet textarea {padding:10px;margin-bottom:15px;}
 form.snippet textarea.code {height:260px;font-family:Consolas,Menlo,Monaco,'Lucida Console','DejaVu Sans Mono','Liberation Mono','Bitstream Vera Sans Mono','Courier New',monospace;}
 form.snippet textarea.description {height:100px;}
 form.snippet .text {padding:5px 10px;margin-bottom:15px;}
+form.snippet #snippet_tag_list {width:660px;display:inline-block;}
+form.snippet #snippet_lang {width:72px;display:inline-block;}
+form.snippet .submit {display:block;}
 
 #tag-name-search {display:block;margin-bottom:10px;width:758px;font-size:24px;padding:5px 10px;}
 #tag-name-search.ajax {background:url("/images/ajax-loader.gif") no-repeat 755px 11px;}
