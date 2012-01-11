@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.3.8'
+gem 'rails', '2.3.14'
 gem 'jrails', '~> 0.6'
 gem 'haml', '~> 2.2.24'
 gem 'simple-navigation', '~> 2.5.3'
