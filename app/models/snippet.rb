@@ -19,6 +19,10 @@ class Snippet < ActiveRecord::Base
     RDiscount.new(description, :filter_html, :safelink, :no_pseudo_protocols, :smart, :autolink).to_html
   end
 
+  def to_param
+    "#{id} #{Transliterator.transliterate(title.to_s)}".parameterize
+  end
+
   private
 
   def self.conditions_array_for_description(args)
@@ -33,5 +37,4 @@ class Snippet < ActiveRecord::Base
       else 'LIKE'
     end
   end
-
 end
