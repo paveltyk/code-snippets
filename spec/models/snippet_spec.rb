@@ -39,4 +39,16 @@ describe Snippet do
       snippet.description_html.should be_nil
     end
   end
+
+  describe '#to_param' do
+    it 'returns id + title' do
+      snippet = Snippet.make(:description => 'This is a test')
+      snippet.to_param.should == "#{snippet.id}-this-is-a-test"
+    end
+
+    it 'works well with russian :)' do
+      snippet = Snippet.make(:description => 'Это тест')
+      snippet.to_param.to_s.should == "#{snippet.id}-eto-test"
+    end
+  end
 end
